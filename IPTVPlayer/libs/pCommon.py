@@ -29,7 +29,7 @@ try:
     except Exception: from StringIO import StringIO 
     import gzip
 except Exception: pass
-from urlparse import urljoin, urlparse, urlunparse
+from urllib.parse import urljoin, urlparse, urlunparse
 from binascii import hexlify
 ###################################################
 
@@ -47,7 +47,7 @@ def EncodeGzipped(data):
     f.close()
     return encoded
 
-class NoRedirection(urllib2.HTTPRedirectHandler):
+class NoRedirection(urllib.request.HTTPRedirectHandler):
     def http_error_302(self, req, fp, code, msg, headers):
         infourl = urllib.addinfourl(fp, headers, req.get_full_url())
         infourl.status = code
@@ -58,8 +58,8 @@ class NoRedirection(urllib2.HTTPRedirectHandler):
     http_error_303 = http_error_302
     http_error_307 = http_error_302
 
-class MultipartPostHandler(urllib2.BaseHandler):
-    handler_order = urllib2.HTTPHandler.handler_order - 10
+class MultipartPostHandler(urllib.request.BaseHandler):
+    handler_order = urllib.request.HTTPHandler.handler_order - 10
 
     def http_request(self, request):
         data = request.get_data()
