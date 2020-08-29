@@ -15,7 +15,6 @@ from Plugins.Extensions.IPTVPlayer.libs.e2ijson import loads as json_loads, dump
 # FOREIGN import
 ###################################################
 import urllib
-import urllib2
 import base64
 try: import ssl
 except Exception: pass
