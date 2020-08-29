@@ -20,7 +20,7 @@ try: import ssl
 except Exception: pass
 import re
 import time
-import cookielib
+import http.cookiejar
 import unicodedata
 try: import pycurl
 except Exception: pass
