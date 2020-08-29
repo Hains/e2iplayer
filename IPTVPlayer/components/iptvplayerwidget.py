@@ -8,7 +8,7 @@
 # 
 
 from os import path as os_path
-from urllib import quote as urllib_quote
+from urllib.parse import quote as urllib_quote
 from random import shuffle as random_shuffle
 import traceback
 
