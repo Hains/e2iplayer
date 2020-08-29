@@ -20,8 +20,7 @@ from Tools.Directories import resolveFilename, fileExists, SCOPE_PLUGINS, SCOPE_
 from enigma import eConsoleAppContainer
 from Components.Language import language
 from time import time
-from urllib2 import urlopen
-import urllib2
+from urllib.request import urlopen
 import traceback
 import re
 import sys
