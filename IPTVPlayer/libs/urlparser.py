@@ -5,7 +5,7 @@ from __future__ import print_function
 ###################################################
 # LOCAL import
 ###################################################
-from pCommon import common, CParsingHelper
+from Plugins.Extensions.IPTVPlayer.libs.pCommon import common, CParsingHelper
 from Plugins.Extensions.IPTVPlayer.components.iptvplayerinit import TranslateTXT as _, SetIPTVPlayerLastHostError, GetIPTVSleep
 from Plugins.Extensions.IPTVPlayer.components.recaptcha_v2helper import CaptchaHelper
 from Plugins.Extensions.IPTVPlayer.tools.iptvtypes import strwithmeta
