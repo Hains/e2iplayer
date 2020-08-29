@@ -11,7 +11,7 @@ from Tools.Directories import fileExists
 from binascii import hexlify
 from hashlib import md5
 import time
-import thread
+import threading
 
 DUKTAPE_VER = '226'
 
