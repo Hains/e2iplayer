@@ -13,7 +13,7 @@
     2002-06-01
 """
 
-from rijndael import Rijndael
+from Plugins.Extensions.IPTVPlayer.libs.crypto.cipher.rijndael import Rijndael
 from base     import BlockCipher, padWithPadLen, noPadding
 from ..errors          import BadKeySizeError
 
