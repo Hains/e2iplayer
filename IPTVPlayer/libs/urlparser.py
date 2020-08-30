@@ -52,7 +52,7 @@ import math
 
 from xml.etree import cElementTree
 from random import random, randint, randrange, choice as random_choice
-from urlparse import urlparse, urlunparse, parse_qs
+from urllib.parse import urlparse, urlunparse, parse_qs
 from binascii import hexlify, unhexlify, a2b_hex
 from hashlib import md5, sha256
 from Components.config import config
