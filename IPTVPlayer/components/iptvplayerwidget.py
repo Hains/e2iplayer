@@ -600,7 +600,7 @@ class E2iPlayerWidget(Screen):
             options.append((_('Reverse a playlist'), "ReversePlayableItems"))
         
         try:
-            host = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + self.hostName, globals(), locals(), ['GetConfigList'], -1)
+            host = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + self.hostName, globals(), locals(), ['GetConfigList'], 0)
             if( len( host.GetConfigList() ) > 0 ):
                 options.append((_("Configure host"), "HostConfig"))
         except Exception: printExc()
@@ -1195,7 +1195,7 @@ class E2iPlayerWidget(Screen):
             try:
                 title = self.hostsAliases.get('host'+hostName, '')
                 if not title:
-                    _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['gettytul'], -1)
+                    _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['gettytul'], 0)
                     title = _temp.gettytul()
             except Exception:
                 printExc('get host name exception for host "%s"' % hostName)
@@ -1257,7 +1257,7 @@ class E2iPlayerWidget(Screen):
                 try:
                     title = self.hostsAliases.get('host'+hostName, '')
                     if not title:
-                        _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['gettytul'], -1)
+                        _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['gettytul'], 0)
                         title = _temp.gettytul()
                 except Exception:
                     printExc('get host name exception for host "%s"' % hostName)
@@ -1441,7 +1441,7 @@ class E2iPlayerWidget(Screen):
     def loadHost(self):
         self.hostFavTypes = []
         try:
-            _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + self.hostName, globals(), locals(), ['IPTVHost'], -1)
+            _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + self.hostName, globals(), locals(), ['IPTVHost'], 0)
             self.host = _temp.IPTVHost()
             if not isinstance(self.host, IHost):
                 printDBG("Host [%r] does not inherit from IHost" % self.hostName)

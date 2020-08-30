@@ -52,7 +52,7 @@ class Favourites(CBaseHostClass):
     def _setHost(self, hostName):
         if hostName == self.hostName: return True
         try:
-            _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['IPTVHost'], -1)
+            _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['IPTVHost'], 0)
             host = _temp.IPTVHost()
             if isinstance(host, IHost):
                 self.hostName = hostName
