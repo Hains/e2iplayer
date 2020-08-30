@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import os
 import re
-import urlparse
-from urllib2 import urlopen
+from urllib.parse import urlparse
+from urllib.request import urlopen
 
 from model import M3U8, Playlist
 from parser import parse, is_url
