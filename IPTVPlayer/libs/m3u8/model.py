@@ -4,7 +4,7 @@ from collections import namedtuple
 import os
 import errno
 import math
-import urlparse
+from urllib.parse import urlparse
 import re
 
 import parser
