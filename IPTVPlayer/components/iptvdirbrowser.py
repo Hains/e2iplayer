@@ -139,7 +139,7 @@ class IPTVDirectorySelectorWidget(Screen):
         
     def prepareCmd(self):
         lsdirPath = GetBinDir("lsdir")
-        try: os_chmod(lsdirPath, 0777)
+        try: os_chmod(lsdirPath, 0o777)
         except Exception: printExc()
         cmd = '%s "%s" dl d' % (lsdirPath, self.currDir)
         return cmd
@@ -309,7 +309,7 @@ class IPTVFileSelectorWidget(IPTVDirectorySelectorWidget):
         
     def prepareCmd(self):
         lsdirPath = GetBinDir("lsdir")
-        try: os_chmod(lsdirPath, 0777)
+        try: os_chmod(lsdirPath, 0o777)
         except Exception: printExc()
         cmd = '%s "%s" drl dr' % (lsdirPath, self.currDir)
         return cmd
