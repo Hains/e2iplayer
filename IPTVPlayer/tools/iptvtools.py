@@ -782,7 +782,7 @@ def FreeSpace(katalog, requiredSpace, unitDiv=1024*1024):
 
 def IsValidFileName(name, NAME_MAX=255):
     prohibited_characters = ['/', "\000", '\\', ':', '*', '<', '>', '|', '"']
-    if isinstance(name, basestring) and (1 <= len(name) <= NAME_MAX):
+    if isinstance(name, str) and (1 <= len(name) <= NAME_MAX):
         for it in name:
             if it in prohibited_characters:
                 return False

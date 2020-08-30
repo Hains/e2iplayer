@@ -122,7 +122,7 @@ class urlparser:
                     i=i+1
                     if resolveLink:
                         url = self.getVideoLink( url )
-                    if isinstance(url, basestring) and url.startswith('http'):
+                    if isinstance(url, str) and url.startswith('http'):
                         valTab.append({'name': (str(i) + '. ' + hostName), 'url': url})
         return valTab
 
@@ -652,7 +652,7 @@ class urlparser:
         try:
             ret = self.getVideoLink(url, True)
             
-            if isinstance(ret, basestring):
+            if isinstance(ret, str):
                 if 0 < len(ret):
                     host = self.getHostName(url)
                     videoTab.append({'name': host, 'url': ret})
@@ -1769,7 +1769,7 @@ class pageParser(CaptchaHelper):
             return videoUrl
         
         tmp = self._parserUNIVERSAL_B(baseUrl)
-        if isinstance(tmp, basestring) and 0 < len(tmp):
+        if isinstance(tmp, str) and 0 < len(tmp):
             tmp += '?client=FLASH'
         return tmp
         

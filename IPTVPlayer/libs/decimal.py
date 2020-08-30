@@ -534,7 +534,7 @@ class Decimal(object):
 
         # From a string
         # REs insist on real strings, so we can too.
-        if isinstance(value, basestring):
+        if isinstance(value, str):
             m = _parser(value)
             if m is None:
                 if context is None:

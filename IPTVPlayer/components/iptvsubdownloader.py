@@ -209,7 +209,7 @@ class IPTVSubDownloaderWidget(Screen):
         self.session.openWithCallback(self.confirmMovieTitleCallBack, GetVirtualKeyboard(), title=(_("Confirm the title of the movie")), text = self.movieTitle)
         
     def confirmMovieTitleCallBack(self, text = None):
-        if isinstance(text, basestring):
+        if isinstance(text, str):
             self.movieTitle = text
             self.listSubtitlesProviders()
         else:

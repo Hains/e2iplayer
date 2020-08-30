@@ -462,7 +462,7 @@ class RTBFBE(CBaseHostClass):
                     
             # SUBTITLES
             for item in data['tracks']:
-                if isinstance(item, basestring): item = data['tracks'][item]
+                if isinstance(item, str): item = data['tracks'][item]
                 subtitleUrl = item['url']
                 if not self.cm.isValidUrl(subtitleUrl): continue
                 subsTab.append({'title':item['label'], 'url':subtitleUrl, 'lang':item['lang'], 'format':item['format']})

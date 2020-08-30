@@ -496,7 +496,7 @@ class YifyTV(CBaseHostClass):
                         if '("' in data: 
                             data = self.cm.ph.getDataBeetwenMarkers(data, '(', ')', False)[1]
                             data = byteify(json.loads(data))
-                        if isinstance(data, basestring):
+                        if isinstance(data, str):
                             data = byteify(json.loads(data))
                         printDBG(data)
                         for item in data:

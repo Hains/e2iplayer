@@ -909,7 +909,7 @@ class common:
             response = None
             status = False
         
-        if addParams['return_data'] and status and not isinstance(response, basestring):
+        if addParams['return_data'] and status and not isinstance(response, str):
             status = False
             
         return (status, response)
@@ -1157,7 +1157,7 @@ class common:
         return dictRet
         
     def getUrllibSSLProtocolVersion(self, protocolName):
-        if not isinstance(protocolName, basestring):
+        if not isinstance(protocolName, str):
             GetIPTVNotify().push('getUrllibSSLProtocolVersion error. Please report this problem to https://github.com/persianpros/e2iplayer/issues', 'error', 40)
             return protocolName
         if protocolName == 'TLSv1_2':
@@ -1167,7 +1167,7 @@ class common:
         return None
         
     def getPyCurlSSLProtocolVersion(self, protocolName):
-        if not isinstance(protocolName, basestring):
+        if not isinstance(protocolName, str):
             GetIPTVNotify().push('getPyCurlSSLProtocolVersion error. Please report this problem to https://github.com/persianpros/e2iplayer/issues', 'error', 40)
             return protocolName
         if protocolName == 'TLSv1_2':

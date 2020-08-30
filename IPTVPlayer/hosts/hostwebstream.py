@@ -1103,7 +1103,7 @@ class IPTVHost(CHostBase):
         if isinstance(urlList, list):
             for item in urlList:
                 retlist.append(CUrlItem(item['name'], item['url'], item.get('need_resolve', 0)))
-        elif isinstance(url, basestring):
+        elif isinstance(url, str):
             if url.endswith('.m3u'):
                 tmpList = self.host.getDirectVideoHasBahCa(name, url)
                 for item in tmpList:

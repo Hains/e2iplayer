@@ -281,7 +281,7 @@ class doUseHostAction(threading.Thread):
 					if isinstance(item, CUrlItem): 
 						item.urlNeedsResolve = 0 # protection from recursion 
 						linkList.append(item)
-					elif isinstance(item, basestring): linkList.append(CUrlItem(item, item, 0))
+					elif isinstance(item,str): linkList.append(CUrlItem(item, item, 0))
 					else: print("selectResolvedVideoLinks: wrong resolved url type!")
 				settings.retObj = RetHost(RetHost.OK, value = linkList)
 			else:
