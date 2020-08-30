@@ -23,7 +23,7 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtypes import strwithmeta
 # FOREIGN import
 ###################################################
 from os import path as os_path
-from urllib import quote as urllib_quote
+from urllib.parse import quote as urllib_quote
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
