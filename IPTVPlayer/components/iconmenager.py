@@ -4,7 +4,7 @@
 ###################################################
 # LOCAL import
 ###################################################
-from asynccall import AsyncMethod
+from Plugins.Extensions.IPTVPlayer.components.asynccall import AsyncMethod
 from Plugins.Extensions.IPTVPlayer.libs.crypto.hash.md5Hash import MD5
 from Plugins.Extensions.IPTVPlayer.libs.pCommon import common
 from Plugins.Extensions.IPTVPlayer.libs.urlparser import urlparser
@@ -21,7 +21,7 @@ from Plugins.Extensions.IPTVPlayer.libs import ph
 # FOREIGN import
 ###################################################
 import threading
-from urlparse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin
 from binascii import hexlify
 from os import path as os_path, rename as os_rename
 from Components.config import config
