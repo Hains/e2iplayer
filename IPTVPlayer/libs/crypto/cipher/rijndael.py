@@ -14,7 +14,7 @@
     2002-06-01
 """
 
-from base import BlockCipher, padWithPadLen, noPadding
+from Plugins.Extensions.IPTVPlayer.libs.crypto.cipher.base import BlockCipher, padWithPadLen, noPadding
 
 class Rijndael(BlockCipher):
     """ Rijndael encryption algorithm """
