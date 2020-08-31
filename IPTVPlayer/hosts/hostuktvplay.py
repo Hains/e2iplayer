@@ -12,7 +12,6 @@ from Plugins.Extensions.IPTVPlayer.libs.urlparserhelper import getDirectM3U8Play
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
 import urllib
 from datetime import timedelta
 try:    import json

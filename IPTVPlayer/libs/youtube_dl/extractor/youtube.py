@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import urllib, urllib2, re, time
-from urlparse import urlparse, urlunparse
+import urllib, re, time
 from Plugins.Extensions.IPTVPlayer.components.iptvplayerinit import TranslateTXT as _, SetIPTVPlayerLastHostError
 from Plugins.Extensions.IPTVPlayer.libs.youtube_dl.utils import *
 from Plugins.Extensions.IPTVPlayer.libs.youtube_dl.utils import _unquote

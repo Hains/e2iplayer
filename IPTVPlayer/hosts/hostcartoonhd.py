@@ -16,7 +16,7 @@ from Plugins.Extensions.IPTVPlayer.libs.e2ijson import loads as json_loads
 import time
 import re
 import urllib
-from urlparse import urljoin
+from urllib.parse import urljoin
 from Components.config import config, ConfigSelection, ConfigText, getConfigListEntry
 ###################################################
 

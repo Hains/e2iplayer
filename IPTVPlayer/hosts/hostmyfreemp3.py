@@ -12,7 +12,7 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtypes import strwithmeta
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
+from urllib.parse import urlparse
 from datetime import  timedelta
 try:    import json
 except Exception: import simplejson as json

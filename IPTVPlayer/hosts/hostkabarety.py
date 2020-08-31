@@ -11,7 +11,7 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtools import printDBG, printExc, by
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
+from urllib.parse import urlparse
 from copy import deepcopy
 try:    import json
 except Exception: import simplejson as json

@@ -13,7 +13,7 @@ from Plugins.Extensions.IPTVPlayer.libs.urlparserhelper import getDirectM3U8Play
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
+from urllib.parse import urlparse
 import re
 import random
 import base64

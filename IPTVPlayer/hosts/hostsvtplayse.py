@@ -16,7 +16,6 @@ from Plugins.Extensions.IPTVPlayer.libs.urlparserhelper import getDirectM3U8Play
 ###################################################
 import re
 import urllib
-import urlparse
 try:    import json
 except Exception: import simplejson as json
 from datetime import datetime, timedelta

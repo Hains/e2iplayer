@@ -11,7 +11,6 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtools import printDBG, printExc, Ge
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
 import re
 import urllib
 from hashlib import md5

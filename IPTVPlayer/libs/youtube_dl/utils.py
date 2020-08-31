@@ -35,7 +35,7 @@ try:
     try:
         from urllib.parse import urlparse as compat_urllib_parse_urlparse
     except ImportError as e: # Python 2
-        from urlparse import urlparse as compat_urllib_parse_urlparse
+        from urllib.parse import urlparse as compat_urllib_parse_urlparse
 except Exception:
     printDBG("YT import problem 4")
   

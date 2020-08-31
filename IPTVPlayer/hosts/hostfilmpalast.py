@@ -15,7 +15,7 @@ from Plugins.Extensions.IPTVPlayer.libs import ph
 # FOREIGN import
 ###################################################
 import urllib
-from urlparse import urljoin
+from urllib.parse import urljoin
 ###################################################
 
 def gettytul():

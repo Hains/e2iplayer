@@ -15,7 +15,6 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtypes import strwithmeta
 import datetime
 import re
 import urllib
-import urlparse
 try:    import json
 except Exception: import simplejson as json
 ###################################################

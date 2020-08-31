@@ -11,7 +11,6 @@ from Plugins.Extensions.IPTVPlayer.libs.urlparserhelper import getDirectM3U8Play
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
 import urllib
 try:    import json
 except Exception: import simplejson as json

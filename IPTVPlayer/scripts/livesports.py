@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
-import urllib2
+import urllib
 import sys
 import traceback
 import base64
@@ -10,7 +10,6 @@ import SocketServer
 import SimpleHTTPServer
 import re
 import ssl
-from urlparse import urlparse, urljoin
 try:    import json
 except Exception: import simplejson as json
 import cookielib

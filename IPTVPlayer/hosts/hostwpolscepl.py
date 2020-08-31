@@ -11,7 +11,6 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtools import printDBG, printExc, by
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
 import urllib
 from datetime import datetime, timedelta
 try:    import json

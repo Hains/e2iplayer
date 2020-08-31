@@ -12,7 +12,6 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtypes import strwithmeta
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
 import time
 import re
 import urllib

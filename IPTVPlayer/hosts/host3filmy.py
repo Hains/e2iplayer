@@ -18,7 +18,6 @@ from Screens.MessageBox import MessageBox
 ###################################################
 # FOREIGN import
 ###################################################
-import urlparse
 import re
 import urllib
 from Components.config import config, ConfigText, ConfigSelection, getConfigListEntry

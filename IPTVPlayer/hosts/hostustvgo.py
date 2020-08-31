@@ -19,7 +19,7 @@ from Plugins.Extensions.IPTVPlayer.tools.e2ijs import js_execute
 ###################################################
 import re
 import base64
-import urlparse
+from urllib.parse import urlparse
 try:    import json
 except Exception: import simplejson as json
 from Components.config import config, ConfigText, getConfigListEntry
