@@ -391,7 +391,7 @@ class AlltubeTV(CBaseHostClass):
                 _myFun = compile(tmp, '', 'exec')
                 vGlobals = {"__builtins__": None, 'len': len, 'list': list, 'ord':ord, 'range':range}
                 vLocals = { 'zaraza': '' }
-                exec _myFun in vGlobals, vLocals
+                exec(_myFun in vGlobals, vLocals)
                 self._myFun = vLocals['zaraza']
             except Exception:
                 printExc()
