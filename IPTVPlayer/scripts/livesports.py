@@ -49,7 +49,7 @@ def getPage(url, params={}):
 
     try:
         ctx = ssl._create_unverified_context(params['ssl_protocol']) if params.get('ssl_protocol', None) != None else ssl._create_unverified_context()
-        customOpeners.append(urllib2.HTTPSHandler(context=ctx))
+        customOpeners.append(urllib.request.HTTPSHandler(context=ctx))
     except Exception:
         pass
 
@@ -58,22 +58,22 @@ def getPage(url, params={}):
             cj = cookielib.MozillaCookieJar()
             try: cj.load(params['cookiefile'], ignore_discard = True)
             except IOError: pass
-        customOpeners.append( urllib2.HTTPCookieProcessor(cj) )
+        customOpeners.append( urllib.request.HTTPCookieProcessor(cj) )
 
     sts = False
     data = None
     try:
-        req = urllib2.Request(url)
+        req = urllib.request.Request(url)
         for key in ('Referer', 'User-Agent', 'Origin', 'Accept-Encoding', 'Accept'):
             if key in params: req.add_header(key, params[key])
         printDBG("++++HEADERS START++++")
         printDBG(req.headers)
         printDBG("++++HEADERS END++++")
-        opener = urllib2.build_opener( *customOpeners )
+        opener = urllib.request.build_opener( *customOpeners )
         resp = opener.open(req)
         data = resp.read()
         sts = True
-    except urllib2.HTTPError, e:
+    except urllib.error.HTTPError as e:
         data = e
     except Exception:
         printExc()

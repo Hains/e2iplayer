@@ -3,7 +3,6 @@
 from __future__ import print_function
 
 import urllib
-import urllib2
 import sys
 import traceback
 import time
@@ -33,12 +32,12 @@ def getPage(url, params={}):
     printDBG('url [%s]' % url)
     sts = False
     try:
-        req = urllib2.Request(url)
+        req = urllib.request.Request(url)
         if 'Referer' in params:
             req.add_header('Referer', params['Referer'])
         if 'User-Agent' in params:
             req.add_header('User-Agent', params['User-Agent'])
-        resp = urllib2.urlopen(req)
+        resp = urllib.request.urlopen(req)
         data = resp.read()
         sts = True
     except Exception:

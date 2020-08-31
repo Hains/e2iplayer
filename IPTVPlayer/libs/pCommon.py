@@ -863,7 +863,7 @@ class common:
                 addParams['return_data'] = True
             response = self.getURLRequestData(addParams, post_data)
             status = True
-        except urllib2.HTTPError as e:
+        except urllib.error.HTTPError as e:
             try:
                 printExc()
                 status = False
@@ -884,7 +884,7 @@ class common:
                     e.fp.close()
             except Exception:
                 printExc()
-        except urllib2.URLError as e:
+        except urllib.error.URLError as e:
             printExc()
             errorMsg = str(e) 
             if 'ssl_protocol' not in addParams and 'TLSV1_ALERT_PROTOCOL_VERSION' in errorMsg:
@@ -1180,16 +1180,16 @@ class common:
         
         def urlOpen(req, customOpeners, timeout):
             if len(customOpeners) > 0:
-                opener = urllib2.build_opener( *customOpeners )
+                opener = urllib.request.build_opener( *customOpeners )
                 if timeout != None:
                     response = opener.open(req, timeout=timeout)
                 else:
                     response = opener.open(req)
             else:
                 if timeout != None:
-                    response = urllib2.urlopen(req, timeout=timeout)
+                    response = urllib.request.urlopen(req, timeout=timeout)
                 else:
-                    response = urllib2.urlopen(req)
+                    response = urllib.request.urlopen(req)
             return response
         
         if IsMainThread():
@@ -1249,7 +1249,7 @@ class common:
                     cj.set_cookie(cookieItem)
             except Exception:
                 printExc()
-            customOpeners.append( urllib2.HTTPCookieProcessor(cj) )
+            customOpeners.append( urllib.request.HTTPCookieProcessor(cj) )
             
         if params.get('no_redirection', False):
             customOpeners.append( NoRedirection() )
@@ -1259,19 +1259,19 @@ class common:
         else:
             sslProtoVer = None
         # debug 
-        #customOpeners.append(urllib2.HTTPSHandler(debuglevel=1))
-        #customOpeners.append(urllib2.HTTPHandler(debuglevel=1))
+        #customOpeners.append(urllib.request.HTTPSHandler(debuglevel=1))
+        #customOpeners.append(urllib.request.HTTPHandler(debuglevel=1))
         if not IsHttpsCertValidationEnabled():
             try:
                 if sslProtoVer != None:
                     ctx = ssl._create_unverified_context( sslProtoVer )
                 else:
                     ctx = ssl._create_unverified_context()
-                customOpeners.append(urllib2.HTTPSHandler(context=ctx))
+                customOpeners.append(urllib.request.HTTPSHandler(context=ctx))
             except Exception: pass
         elif sslProtoVer != None:
             ctx = ssl.SSLContext( sslProtoVer )
-            customOpeners.append(urllib2.HTTPSHandler(context=ctx))
+            customOpeners.append(urllib.request.HTTPSHandler(context=ctx))
         
         #proxy support
         if self.useProxy:
@@ -1283,8 +1283,8 @@ class common:
             http_proxy = params['http_proxy']
         if '' != http_proxy:
             printDBG('getURLRequestData USE PROXY')
-            customOpeners.append( urllib2.ProxyHandler({"http":http_proxy}) )
-            customOpeners.append( urllib2.ProxyHandler({"https":http_proxy}) )
+            customOpeners.append( urllib.request.ProxyHandler({"http":http_proxy}) )
+            customOpeners.append( urllib.request.ProxyHandler({"https":http_proxy}) )
         
         pageUrl = params['url']
         proxy_gateway = params.get('proxy_gateway', '')
@@ -1301,9 +1301,9 @@ class common:
                 dataPost = post_data
             else:
                 dataPost = urllib.urlencode(post_data)
-            req = urllib2.Request(pageUrl, dataPost, headers)
+            req = urllib.request.Request(pageUrl, dataPost, headers)
         else:
-            req = urllib2.Request(pageUrl, None, headers)
+            req = urllib.request.Request(pageUrl, None, headers)
 
         if not params.get('return_data', False):
             out_data = urlOpen(req, customOpeners, timeout)
@@ -1321,7 +1321,7 @@ class common:
                 
                 data = response.read(params.get('max_data_size', -1))
                 response.close()
-            except urllib2.HTTPError as e:
+            except urllib.error.HTTPError as e:
                 ignoreCodeRanges = params.get('ignore_http_code_ranges', [(404, 404), (500, 500)])
                 ignoreCode = False
                 metadata['status_code'] = e.code

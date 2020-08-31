@@ -907,7 +907,7 @@ def GetFileSize(filepath):
 def DownloadFile(url, filePath):
     printDBG('DownloadFile [%s] from [%s]' % (filePath, url) )
     try:
-        downloadFile = urllib2.urlopen(url)
+        downloadFile = urllib.request.urlopen(url)
         output = open(filePath, 'wb')
         output.write(downloadFile.read())
         output.close()

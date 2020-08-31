@@ -23,11 +23,11 @@
 
 """An HTTP handler for urllib2 that supports HTTP 1.1 and keepalive.
 
->>> import urllib2
+>>> import urllib
 >>> from keepalive import HTTPHandler
 >>> keepalive_handler = HTTPHandler()
->>> opener = urllib2.build_opener(keepalive_handler)
->>> urllib2.install_opener(opener)
+>>> opener = urllib.request.build_opener(keepalive_handler)
+>>> urllib.request.install_opener(opener)
 >>> 
 >>> fo = urllib2.urlopen('http://www.python.org')
 
@@ -59,7 +59,7 @@ EXTRA ATTRIBUTES AND METHODS
 
   Upon a status of 200, the object returned has a few additional
   attributes and methods, which should not be used if you want to
-  remain consistent with the normal urllib2-returned objects:
+  remain consistent with the normal urllib-returned objects:
 
     close_connection()  -  close the connection to the host
     readlines()         -  you know, readlines()
@@ -105,7 +105,7 @@ EXTRA ATTRIBUTES AND METHODS
 
 # $Id: keepalive.py,v 1.17 2006/12/08 00:14:16 mstenner Exp $
 
-import urllib2
+import urllib
 import httplib
 import socket
 import thread
@@ -214,7 +214,7 @@ class KeepAliveHandler:
     def do_open(self, req):
         host = req.host
         if not host:
-            raise urllib2.URLError('no host given')
+            raise urllib.error.URLError('no host given')
 
         try:
             h = self._cm.get_ready_conn(host)
@@ -239,7 +239,7 @@ class KeepAliveHandler:
                 self._start_transaction(h, req)
                 r = h.getresponse()
         except (socket.error, httplib.HTTPException), err:
-            raise urllib2.URLError(err)
+            raise urllib.error.URLError(err)
             
         if DEBUG: DEBUG.info("STATUS: %s, %s", r.status, r.reason)
 
@@ -324,7 +324,7 @@ class KeepAliveHandler:
                 else:
                     h.putrequest('GET', req.get_selector())
         except (socket.error, httplib.HTTPException), err:
-            raise urllib2.URLError(err)
+            raise urllib.error.URLError(err)
 
         for args in self.parent.addheaders:
             h.putheader(*args)
@@ -337,7 +337,7 @@ class KeepAliveHandler:
     def _get_connection(self, host):
         return NotImplementedError
 
-class HTTPHandler(KeepAliveHandler, urllib2.HTTPHandler):
+class HTTPHandler(KeepAliveHandler, urllib.request.HTTPHandler):
     def __init__(self):
         KeepAliveHandler.__init__(self)
 
@@ -347,7 +347,7 @@ class HTTPHandler(KeepAliveHandler, urllib2.HTTPHandler):
     def _get_connection(self, host):
         return HTTPConnection(host)
 
-class HTTPSHandler(KeepAliveHandler, urllib2.HTTPSHandler):
+class HTTPSHandler(KeepAliveHandler, urllib.request.HTTPSHandler):
     def __init__(self, ssl_factory=None):
         KeepAliveHandler.__init__(self)
         if not ssl_factory:
