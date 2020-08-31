@@ -1192,15 +1192,15 @@ class E2iPlayerWidget(Screen):
         
         brokenHostList = []
         for hostName in hostsList:
-            try:
+            if 1:
                 title = self.hostsAliases.get('host'+hostName, '')
                 if not title:
                     _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['gettytul'], 0)
                     title = _temp.gettytul()
-            except Exception:
-                printExc('get host name exception for host "%s"' % hostName)
-                brokenHostList.append('host'+hostName)
-                continue 
+            # except Exception:
+            #    printExc('get host name exception for host "%s"' % hostName)
+            #    brokenHostList.append('host'+hostName)
+            #    continue 
             self.displayHostsList.append((title, hostName))
             
         # if there is no order hosts list use old behavior for all group
@@ -1254,15 +1254,15 @@ class E2iPlayerWidget(Screen):
         brokenHostList = []
         for hostName in sortedList:
             if IsHostEnabled(hostName):
-                try:
+                if 1:
                     title = self.hostsAliases.get('host'+hostName, '')
                     if not title:
                         _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['gettytul'], 0)
                         title = _temp.gettytul()
-                except Exception:
-                    printExc('get host name exception for host "%s"' % hostName)
-                    brokenHostList.append('host'+hostName)
-                    continue
+                # except Exception:
+                #    printExc('get host name exception for host "%s"' % hostName)
+                #    brokenHostList.append('host'+hostName)
+                #    continue
 
                 # The 'http...' in host titles is annoying on regular choiceBox and impacts sorting.
                 # To simplify choiceBox usage and clearly show service is a webpage, list is build using the "<service name> (<service URL>)" schema.
