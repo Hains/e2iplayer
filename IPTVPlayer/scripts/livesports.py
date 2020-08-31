@@ -12,7 +12,7 @@ import re
 import ssl
 try:    import json
 except Exception: import simplejson as json
-import cookielib
+import http.cookiejar
 import time
 
 import signal
@@ -55,7 +55,7 @@ def getPage(url, params={}):
 
     if params.get('cookiefile'):
         if cj == None:
-            cj = cookielib.MozillaCookieJar()
+            cj = http.cookiejar.MozillaCookieJar()
             try: cj.load(params['cookiefile'], ignore_discard = True)
             except IOError: pass
         customOpeners.append( urllib.request.HTTPCookieProcessor(cj) )

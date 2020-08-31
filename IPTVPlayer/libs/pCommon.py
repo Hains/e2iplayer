@@ -393,7 +393,7 @@ class common:
         return self.geolocation.get('countryCode', '').lower()
         
     def _pyCurlLoadCookie(self, cookiefile, ignoreDiscard=True, ignoreExpires=False):
-        cj = cookielib.MozillaCookieJar()
+        cj = http.cookiejar.MozillaCookieJar()
         f = open(cookiefile)
         lines = f.readlines()
         f.close()
@@ -418,7 +418,7 @@ class common:
             if self.usePyCurl():
                 cj = self._pyCurlLoadCookie(cookiefile, ignoreDiscard, ignoreExpires)
             else:
-                cj = cookielib.MozillaCookieJar()
+                cj = http.cookiejar.MozillaCookieJar()
             cj.load(cookiefile, ignore_discard = ignoreDiscard)
             for cookie in cj:
                 if cookie.name not in leaveNames and (None == removeNames or cookie.name in removeNames):
@@ -441,7 +441,7 @@ class common:
             if self.usePyCurl():
                 cj = self._pyCurlLoadCookie(cookiefile, ignoreDiscard, ignoreExpires)
             else:
-                cj = cookielib.MozillaCookieJar()
+                cj = http.cookiejar.MozillaCookieJar()
                 cj.load(cookiefile, ignore_discard = ignoreDiscard)
         except Exception:
             printExc()
@@ -1201,7 +1201,7 @@ class common:
         if 'max_data_size' in params and not params.get('return_data', False):
             raise Exception("return_data == False is not accepted with max_data_size.\nPlease also note that return_data == False is deprecated and not supported with PyCurl HTTP backend!")
         
-        cj = cookielib.MozillaCookieJar()
+        cj = http.cookiejar.MozillaCookieJar()
         response = None
         req      = None
         out_data = None
@@ -1245,7 +1245,7 @@ class common:
             try:
                 for cookieKey in params.get('cookie_items', {}).keys():
                     printDBG("cookie_item[%s=%s]" % (cookieKey, params['cookie_items'][cookieKey]))
-                    cookieItem = cookielib.Cookie(version=0, name=cookieKey, value=params['cookie_items'][cookieKey], port=None, port_specified=False, domain='', domain_specified=False, domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)
+                    cookieItem = http.cookiejar.Cookie(version=0, name=cookieKey, value=params['cookie_items'][cookieKey], port=None, port_specified=False, domain='', domain_specified=False, domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)
                     cj.set_cookie(cookieItem)
             except Exception:
                 printExc()
