@@ -52,14 +52,12 @@ import math
 
 from xml.etree import cElementTree
 from random import random, randint, randrange, choice as random_choice
-from urllib.parse import urlparse, urlunparse, parse_qs
+from urllib.parse import urlparse, urlunparse, parse_qs, urlsplit, urlunsplit, urljoin
 from binascii import hexlify, unhexlify, a2b_hex
 from hashlib import md5, sha256
 from Components.config import config
 
 from Plugins.Extensions.IPTVPlayer.libs.youtube_dl.extractor.mtv import GametrailersIE
-try:    from urlparse import urlsplit, urlunsplit, urljoin
-except Exception: printExc()
 ###################################################
 
 def InternalCipher(data, encrypt=True):

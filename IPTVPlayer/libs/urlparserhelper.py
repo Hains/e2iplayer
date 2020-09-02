@@ -17,8 +17,6 @@ import time
 import string
 import codecs
 import urllib
-try:    from urlparse import urlsplit, urlunsplit, urljoin
-except Exception: printExc()
 ###################################################
 try:
     from hashlib import md5

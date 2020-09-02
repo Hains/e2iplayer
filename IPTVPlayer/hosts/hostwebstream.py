@@ -48,7 +48,7 @@ from Plugins.Extensions.IPTVPlayer.libs.wiz1net           import Wiz1NetApi
 ###################################################
 import re
 import urllib
-from urlparse import urlsplit, urlunsplit
+from urllib.parse import urlsplit, urlunsplit
 from Components.config import config, ConfigSelection, ConfigYesNo, getConfigListEntry
 ############################################
 

@@ -13,8 +13,6 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtools import printDBG, printExc, Ge
 ###################################################
 import re
 import urllib
-try:    from urlparse import urlsplit
-except Exception: printExc()
 try:
     import gzip
 except Exception: pass
