@@ -17,7 +17,7 @@ from Plugins.Extensions.IPTVPlayer.libs import ph
 ###################################################
 import re
 import urllib
-from urlparse import urlsplit, urlunsplit, urlparse
+from urllib.parse import urlsplit, urlunsplit, urlparse
 from Components.config import config, ConfigSelection, ConfigText, getConfigListEntry
 ###################################################
 
