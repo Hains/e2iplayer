@@ -619,7 +619,7 @@ def GetHostsFromList(useCache=True):
     try:
         sts, data = ReadTextFile(__getHostsPath('/list.txt') )
         if sts:
-            data = data.split('\n')
+            data = data.decode().split('\n')
             for item in data:
                 line = item.strip()
                 if __isHostNameValid(line):
