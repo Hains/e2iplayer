@@ -102,7 +102,7 @@ except ImportError as e: # Python 2
 
     def _parse_qsl(qs, keep_blank_values=False, strict_parsing=False,
                 encoding='utf-8', errors='replace'):
-        qs, _coerce_result = qs, unicode
+        qs, _coerce_result = qs, str
         pairs = [s2 for s1 in qs.split('&') for s2 in s1.split(';')]
         r = []
         for name_value in pairs:
@@ -193,9 +193,9 @@ def htmlentity_transform(entity):
 
 def clean_html(html):
     """Clean an HTML snippet into a readable string"""
-    if type(html) == type(u''):
+    if type(html) == type(''):
         strType = 'unicode'
-    elif type(html) == type(''):
+    elif type(html) == type(b''):
         strType = 'utf-8'
         html = html.decode("utf-8", 'ignore')
         

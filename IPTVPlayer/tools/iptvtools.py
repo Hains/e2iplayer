@@ -1269,7 +1269,7 @@ def byteify(input, noneReplacement=None, baseTypesAsString=False):
         return dict([(byteify(key, noneReplacement, baseTypesAsString), byteify(value, noneReplacement, baseTypesAsString)) for key, value in iter(input.items())])
     elif isinstance(input, list):
         return [byteify(element, noneReplacement, baseTypesAsString) for element in input]
-    elif isinstance(input, unicode):
+    elif isinstance(input, str):
         return input.encode('utf-8')
     elif input == None and noneReplacement != None:
         return noneReplacement
