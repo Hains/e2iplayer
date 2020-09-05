@@ -17,9 +17,8 @@ import re
 import urllib
 try:    import json
 except Exception: import simplejson as json
+import io
 try:
-    try: from cStringIO import StringIO
-    except Exception: from StringIO import StringIO 
     import gzip
 except Exception: pass
 from Components.config import config
@@ -261,7 +260,7 @@ class OpenSubtitlesRest(CBaseSubProviderClass):
             return retData
         
         try:
-            buf = StringIO(data)
+            buf = io.StringIO(data)
             f = gzip.GzipFile(fileobj=buf)
             data = f.read()
         except Exception:

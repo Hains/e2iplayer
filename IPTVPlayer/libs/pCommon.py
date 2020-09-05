@@ -24,9 +24,8 @@ import http.cookiejar
 import unicodedata
 try: import pycurl
 except Exception: pass
+import io
 try:
-    try: from cStringIO import StringIO
-    except Exception: from StringIO import StringIO 
     import gzip
 except Exception: pass
 from urllib.parse import urljoin, urlparse, urlunparse
@@ -34,12 +33,12 @@ from binascii import hexlify
 ###################################################
 
 def DecodeGzipped(data):
-    buf = StringIO(data)
+    buf = io.StringIO(data)
     f = gzip.GzipFile(fileobj=buf)
     return f.read()
 
 def EncodeGzipped(data):
-    f = StringIO()
+    f = io.StringIO()
     gzf = gzip.GzipFile(mode="wb", fileobj=f, compresslevel=1)
     gzf.write(data)
     gzf.close()
@@ -409,7 +408,7 @@ class common:
                 lineNeedFix = True
             if lineNeedFix: 
                 lines[idx] = '\t'.join(fields)
-        cj._really_load(StringIO(''.join(lines)), cookiefile, ignore_discard=ignoreDiscard, ignore_expires=ignoreExpires)
+        cj._really_load(io.StringIO(''.join(lines)), cookiefile, ignore_discard=ignoreDiscard, ignore_expires=ignoreExpires)
         return cj
         
     def clearCookie(self, cookiefile, leaveNames=[], removeNames=None, ignoreDiscard=True, ignoreExpires=False):
@@ -486,7 +485,7 @@ class common:
         out_data = None
         sts = False
         
-        buffer = StringIO()
+        buffer = io.StringIO()
         checkFromFirstBytes = params.get('check_first_bytes', [])
         fileHandler = None
         firstAttempt = [True]
