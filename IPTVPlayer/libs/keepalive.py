@@ -111,11 +111,8 @@ import socket
 import thread
 
 DEBUG = None
+HANDLE_ERRORS = 0
 
-import sys
-if sys.version_info < (2, 4): HANDLE_ERRORS = 1
-else: HANDLE_ERRORS = 0
-    
 class ConnectionManager:
     """
     The connection manager must be able to:
