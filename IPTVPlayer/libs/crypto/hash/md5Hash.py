@@ -4,7 +4,7 @@
       Wrapper for python md5 module to support crypo module standard interface
 """
 from hashlib import md5
-from ..hash.hash import Hash
+from Plugins.Extensions.IPTVPlayer.libs.crypto.hash.hash import Hash
 
 class MD5(Hash):
 
