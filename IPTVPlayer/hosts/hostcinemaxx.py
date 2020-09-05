@@ -82,7 +82,7 @@ class Cinemaxx(CBaseHostClass):
                         if ret['sts'] and 0 == ret['code']:
                             cj = self.cm.getCookie(self.COOKIE_FILE)
                             for item in json_loads(ret['data'])['cookies']:
-                                for cookieKey, cookieValue in item.iteritems():
+                                for cookieKey, cookieValue in iter(item.items()):
                                     cookieItem = http.cookiejar.Cookie(version=0, name=cookieKey, value=cookieValue, port=None, port_specified=False, domain='.'+self.cm.getBaseUrl(cUrl, True), domain_specified=True, domain_initial_dot=True, path='/', path_specified=True, secure=False, expires=time.time()+3600*48, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)
                                     cj.set_cookie(cookieItem)
                             cj.save(self.COOKIE_FILE, ignore_discard = True)

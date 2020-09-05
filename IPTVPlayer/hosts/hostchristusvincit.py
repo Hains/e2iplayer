@@ -395,7 +395,7 @@ class Christusvincit(CBaseHostClass):
                     playerConfig = json_loads(playerConfig)
                     playlistResult = playerConfig.get('playlistResult', {})
                     if not playlistResult: playlistResult['0'] = {'items':[playerConfig['entryResult']['meta']]}
-                    for key, section in playlistResult.iteritems():
+                    for key, section in iter(playlistResult.items()):
                         for item in section['items']:
                             icon = self.getFullUrl(item['thumbnailUrl'])
                             title = item['name']

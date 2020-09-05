@@ -1266,7 +1266,7 @@ class CMoviePlayerPerHost():
         
 def byteify(input, noneReplacement=None, baseTypesAsString=False):
     if isinstance(input, dict):
-        return dict([(byteify(key, noneReplacement, baseTypesAsString), byteify(value, noneReplacement, baseTypesAsString)) for key, value in input.iteritems()])
+        return dict([(byteify(key, noneReplacement, baseTypesAsString), byteify(value, noneReplacement, baseTypesAsString)) for key, value in iter(input.items())])
     elif isinstance(input, list):
         return [byteify(element, noneReplacement, baseTypesAsString) for element in input]
     elif isinstance(input, unicode):

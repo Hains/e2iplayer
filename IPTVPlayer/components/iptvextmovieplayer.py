@@ -1149,7 +1149,7 @@ class IPTVExtMoviePlayer(Screen):
         if self.playback['Length'] > 0 and self.downloader != None and self.downloader.getName() == 'ffmpeg':
             stsObj['Length'] = self.playback['Length']
         
-        for key, val in stsObj.iteritems():
+        for key, val in iter(stsObj.items()):
             if 'Length' == key:
                 if 0 > val:
                     printDBG('IPTVExtMoviePlayer.playbackUpdateInfo Length[%d] - live stream?' % val )

@@ -63,7 +63,7 @@ class WeebTvApi:
     def _jsonToSortedTab(self, data):
         strTab = []
         outTab = []
-        for v,k in data.iteritems():
+        for v,k in iter(data.items()):
             strTab.append(int(v))
             strTab.append(k)
             outTab.append(strTab)

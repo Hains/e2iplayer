@@ -420,14 +420,14 @@ class HDSTo(CBaseHostClass):
                             
                             linksTab.extend(tmpLinksTab)
                     else:
-                        for key, dat in data.iteritems():
+                        for key, dat in iter(data.items()):
                             subsTab = []
                             for item in dat.get('ccFiles', []):
                                 if len(item) < 3: continue
                                 subsTab.append({'title':self.cleanHtmlStr(item[1]), 'url':self.getFullUrl(item[2], cUrl), 'lang':self.cleanHtmlStr(item[0]), 'format':self.cleanHtmlStr(item[0]).rsplit('.', 1)[-1]})
                             
                             tmpLinksTab = []
-                            for type, item in dat.get('bitrates', {}).iteritems():
+                            for type, item in dat.get('bitrates', iter({}).items()):
                                 if type == 'hls':
                                     tmpLinksTab.extend( getDirectM3U8Playlist(item, checkExt=False, checkContent=True) )
                                 elif type == 'mp4' and isinstance(item, list):

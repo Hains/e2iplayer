@@ -310,7 +310,7 @@ class common:
     def buildHTTPQuery(query):
         def _process(query, data, key_prefix):
             if isinstance(data, dict):
-                for key, value in data.iteritems():
+                for key, value in iter(data.items()):
                     key = '%s[%s]' % (key_prefix, key) if key_prefix else key
                     _process(query, value, key)
             elif isinstance(data, list):
@@ -846,7 +846,7 @@ class common:
                     if key in responseHeaders:
                         metadata[key.lower()]=responseHeaders[key]
 
-            for header, value in responseHeaders.iteritems():
+            for header, value in iter(responseHeaders.items()):
                 metadata[header.lower()] = responseHeaders[header]
 
     def getPage(self, url, addParams = {}, post_data = None):

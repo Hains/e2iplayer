@@ -128,8 +128,8 @@ class TrailersApple(CBaseHostClass):
                 icon = self.getFullIconUrl(item['thumb'])
 
                 urls = []
-                for version, versionData in item.get('versions', {}).iteritems():
-                    for size, sizeData in versionData.get('sizes', {}).iteritems():
+                for version, versionData in item.get('versions', iter({}).items()):
+                    for size, sizeData in versionData.get('sizes', iter({}).items()):
                         url = sizeData.get('src')
                         if not url:
                             continue

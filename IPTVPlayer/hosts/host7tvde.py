@@ -117,7 +117,7 @@ class C7tvDe(CBaseHostClass):
         cUrl = self.cm.meta['url']
         try:
             data = json_loads(data)
-            for letter, value in data['facet'].iteritems():
+            for letter, value in iter(data['facet'].items()):
                 if letter == '#': letter = '0-9'
                 if value:
                     title = '%s (%s)' % (letter.upper(), value)

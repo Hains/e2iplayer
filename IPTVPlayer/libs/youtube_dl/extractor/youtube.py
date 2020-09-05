@@ -136,7 +136,7 @@ class CYTSignAlgoExtractor:
                 code.insert(0, fun)
 
             objects = self._getAllObjectsWithMethods(mainFunction)
-            for objName, methods in objects.iteritems():
+            for objName, methods in iter(objects.items()):
                 obj = self._findObject(objName, methods)
                 code.insert(0, obj)
 

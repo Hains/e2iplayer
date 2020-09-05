@@ -258,7 +258,7 @@ class KKisteAG(CBaseHostClass):
 
     def joinLink(self, params):
         tab = []
-        for key, value in params[1].iteritems():
+        for key, value in iter(params[1].items()):
             tab.append('%s=%s' % (key, value))
         return params[0] + '?' + '&'.join(tab)
 

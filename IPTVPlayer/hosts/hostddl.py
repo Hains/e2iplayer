@@ -384,8 +384,8 @@ class DDLMe(CBaseHostClass):
                 data = ret['data'].strip()
                 data = byteify(json.loads(data))
                 
-                for key, dat in data.iteritems():
-                    for name, item in dat['links'].iteritems():
+                for key, dat in iter(data.items()):
+                    for name, item in iter(dat['links'].items()):
                         for linkData in item:
                             pNum = int(linkData[0])
                             url = self.getFullUrl(linkData[3], cUrl)

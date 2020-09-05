@@ -220,7 +220,7 @@ class Playpuls(CBaseHostClass):
                 source3Data = byteify(json.loads(source3Data))
                 if 'sources' in source3Data:
                     source3Data = source3Data['sources']
-                for key,val in source3Data.iteritems():
+                for key,val in iter(source3Data.items()):
                     if val != '':
                         key = key.replace('src', '')
                         sources.append({'quality':key, 'src': '/play/%s' % val })
