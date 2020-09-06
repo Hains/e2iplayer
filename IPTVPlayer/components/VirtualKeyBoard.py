@@ -324,7 +324,7 @@ class IPTVVirtualKeyBoardWithCaptcha(Screen):
 
     def keyGotAscii(self):
         self.smsChar = None
-        if self.selectAsciiKey(str(unichr(getPrevAsciiCode()).encode('utf-8'))):
+        if self.selectAsciiKey(str(chr(getPrevAsciiCode()).encode('utf-8'))):
             self.okClicked()
 
     def selectAsciiKey(self, char):

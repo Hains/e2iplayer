@@ -1421,5 +1421,5 @@ class common:
     def makeABCList(self, tab = ['0 - 9']):
         strTab = list(tab)
         for i in range(65,91):
-            strTab.append(str(unichr(i)))    
+            strTab.append(str(chr(i)))
         return strTab
