@@ -11852,8 +11852,8 @@ class pageParser(CaptchaHelper):
         retTab = []
         try:
             tmp = json_loads(ph.find(data, 'var video_links =', '};', flags=0)[1] + '}')
-            for subItem in tmp.itervalues():
-                for item in subItem.itervalues():
+            for subItem in iter(tmp.values()):
+                for item in iter(subItem.values()):
                     for it in item:
                         url = strwithmeta(it['link'], {'User-Agent':HTTP_HEADER['User-Agent'], 'Referer':self.cm.meta['url']})
                         type = url.split('?', 1)[0].rsplit('.', 1)[-1].lower()

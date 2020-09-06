@@ -442,7 +442,7 @@ class MediasetPlay(CBaseHostClass):
             if not sts: return
             try:
                 data = json_loads(data)
-                for tuningInstructions in data['response']['tuningInstruction'].itervalues():
+                for tuningInstructions in iter(data['response']['tuningInstruction'].values()):
                     for item in tuningInstructions:
                         printDBG(item)
                         url = item['streamingUrl'].split('?', 1)[0].replace('t-mediaset-it', '-mediaset-it')
