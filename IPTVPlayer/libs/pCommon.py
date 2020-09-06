@@ -16,18 +16,14 @@ from Plugins.Extensions.IPTVPlayer.libs.e2ijson import loads as json_loads, dump
 ###################################################
 import urllib
 import base64
-try: import ssl
-except Exception: pass
+import ssl
 import re
 import time
 import http.cookiejar
 import unicodedata
-try: import pycurl
-except Exception: pass
+import pycurl
 import io
-try:
-    import gzip
-except Exception: pass
+import gzip
 from urllib.parse import urljoin, urlparse, urlunparse
 from binascii import hexlify
 ###################################################
