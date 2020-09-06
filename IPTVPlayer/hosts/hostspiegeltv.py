@@ -20,6 +20,7 @@ import time
 import re
 import hashlib
 import urllib
+from urllib.parse import urlparse
 import random
 from datetime import datetime
 ###################################################

@@ -15,6 +15,7 @@ from Plugins.Extensions.IPTVPlayer.libs.e2ijson import loads as json_loads
 # FOREIGN import
 ###################################################
 import urllib
+from urllib.parse import urlparse
 import base64
 import re
 from Components.config import config, ConfigText, getConfigListEntry

@@ -13,6 +13,7 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtools import printDBG, printExc, by
 ###################################################
 import re
 import urllib
+from urllib.parse import urlparse
 try:    import json
 except Exception: import simplejson as json
 from Components.config import config, ConfigText, getConfigListEntry

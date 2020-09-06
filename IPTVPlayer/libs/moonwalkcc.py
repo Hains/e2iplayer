@@ -21,6 +21,7 @@ import re
 import base64
 import copy
 import urllib
+from urllib.parse import urlparse, parse_qsl
 from binascii import unhexlify
 from Components.config import config, ConfigSelection, ConfigYesNo
 ###################################################

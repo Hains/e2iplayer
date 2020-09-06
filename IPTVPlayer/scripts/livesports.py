@@ -10,6 +10,7 @@ import SocketServer
 import SimpleHTTPServer
 import re
 import ssl
+from urllib.parse import urlparse, urljoin
 try:    import json
 except Exception: import simplejson as json
 import http.cookiejar

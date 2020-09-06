@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 import urllib, re, time
+from urllib.parse import urlparse, unquote
 from Plugins.Extensions.IPTVPlayer.components.iptvplayerinit import TranslateTXT as _, SetIPTVPlayerLastHostError
 from Plugins.Extensions.IPTVPlayer.libs.youtube_dl.utils import *
-# from Plugins.Extensions.IPTVPlayer.libs.youtube_dl.utils import _unquote
 from Plugins.Extensions.IPTVPlayer.libs.pCommon import common
 from Plugins.Extensions.IPTVPlayer.tools.iptvtools import printDBG, printExc, GetDefaultLang, byteify, GetCookieDir
 from Plugins.Extensions.IPTVPlayer.tools.iptvtypes import strwithmeta
@@ -670,7 +670,7 @@ class YoutubeIE(object):
                 cipher = {}
                 url_data_str = json_loads(_unquote(video_info['player_response'], None))['streamingData']['formats']
                 try:
-                    url_data_str += json_loads(_unquote(video_info['player_response'], None))['streamingData']['adaptiveFormats']
+                    url_data_str += json_loads(unquote(video_info['player_response'], None))['streamingData']['adaptiveFormats']
                 except Exception:
                     printExc()
                 
@@ -689,7 +689,7 @@ class YoutubeIE(object):
                             #sig_item = ''
                             #s_item = ''
                             #sp_item = ''
-                            if 'url=' in item: url_item = {'url':_unquote(item.replace('url=',''), None)}
+                            if 'url=' in item: url_item = {'url':unquote(item.replace('url=',''), None)}
                             if 'sig=' in item: sig_item = item.replace('sig=','')
                             if 's=' in item: s_item = item.replace('s=','')
                             if 'sp=' in item: sp_item = item.replace('sp=','')
@@ -697,7 +697,7 @@ class YoutubeIE(object):
                             signature = sig_item
                             url_item['url'] += '&signature=' + signature
                         elif len(s_item):
-                            url_item['esign'] = _unquote(s_item)
+                            url_item['esign'] = unquote(s_item)
                             if len(sp_item): 
                                 url_item['url'] += '&%s={0}' % sp_item
                             else:

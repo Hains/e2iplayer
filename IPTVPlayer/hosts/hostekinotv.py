@@ -25,6 +25,7 @@ from Screens.MessageBox import MessageBox
 import base64
 import re
 import urllib
+from urllib.parse import urlparse
 from Components.config import config, ConfigText, ConfigSelection, getConfigListEntry
 ###################################################
 

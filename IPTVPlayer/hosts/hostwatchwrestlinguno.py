@@ -14,6 +14,7 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtypes import strwithmeta
 ###################################################
 import re
 import urllib
+from urllib.parse import urlparse
 ###################################################
 
 def gettytul():

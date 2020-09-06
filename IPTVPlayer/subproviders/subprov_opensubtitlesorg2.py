@@ -13,6 +13,7 @@ from Plugins.Extensions.IPTVPlayer.tools.iptvtools import printDBG, printExc, Ge
 ###################################################
 import re
 import urllib
+from urllib.parse import urlparse
 from hashlib import md5
 from Components.config import config
 ###################################################
