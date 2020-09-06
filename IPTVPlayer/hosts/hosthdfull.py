@@ -273,7 +273,7 @@ class HDFull(CBaseHostClass, CaptchaHelper):
             elif 'view' in item:
                 tabJs['view'] = {'url':self.getFullUrl(item), 'hash':version + '.1'}
 
-        for key in tabJs.iterkeys():
+        for key in iter(tabJs.keys()):
             tabJs[key]['name'] = 'hdfull.me_%s' % key
             if not is_js_cached(tabJs[key]['name'], tabJs[key]['hash']):
                 sts, jsdata = self.getPage(tabJs[key]['url'])
