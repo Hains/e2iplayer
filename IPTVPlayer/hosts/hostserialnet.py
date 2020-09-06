@@ -64,7 +64,7 @@ class SerialeNet(CBaseHostClass):
         return ret
 
     def unpack(self, p, a, c, k, e=None, d=None):
-        for i in xrange(c-1,-1,-1):
+        for i in range(c-1,-1,-1):
             if k[i]:
                p = re.sub('\\b'+self.int2base(i,a)+'\\b', k[i], p)
         return p
