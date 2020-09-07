@@ -15,6 +15,7 @@ from Plugins.Extensions.IPTVPlayer.libs import ph
 ###################################################
 from datetime import timedelta
 import urllib
+from urllib.parse import quote
 import time
 from Components.config import config, ConfigSelection, getConfigListEntry
 ###################################################
