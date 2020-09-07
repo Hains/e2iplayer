@@ -96,7 +96,7 @@ class TVProart(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("TVProart.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         page = cItem.get('page', 0)
-        url = self.SEARCH_URL + urllib.quote(searchPattern)
+        url = self.SEARCH_URL + urllib.parse.quote(searchPattern)
         sts, data = self.cm.getPage(url + '&page={0}'.format(page))
         if not sts: return
         nextPage = False

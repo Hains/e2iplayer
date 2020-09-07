@@ -36,7 +36,7 @@ class UnCaptchaReCaptcha:
         token = ''
         errorMsgTab = []
         apiKey = config.plugins.iptvplayer.api_key_2captcha.value
-        apiUrl = self.getFullUrl('/in.php?key=') + apiKey + '&method=userrecaptcha&version=v3&action=' + action + '&min_score=0.3&googlekey=' + sitekey + '&json=1&pageurl=' + urllib.quote(referer)
+        apiUrl = self.getFullUrl('/in.php?key=') + apiKey + '&method=userrecaptcha&version=v3&action=' + action + '&min_score=0.3&googlekey=' + sitekey + '&json=1&pageurl=' + urllib.parse.quote(referer)
         try:
             token = ''
             sts, data = self.cm.getPage(apiUrl)

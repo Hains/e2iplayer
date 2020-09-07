@@ -237,7 +237,7 @@ class IceFilms(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("IceFilms.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
-        baseUrl = self.getFullUrl('/search.php?q=%s&x=0&y=0' % urllib.quote_plus(searchPattern))
+        baseUrl = self.getFullUrl('/search.php?q=%s&x=0&y=0' % urllib.parse.quote_plus(searchPattern))
         sts, data = self.getPage(baseUrl)
         if not sts: return
 

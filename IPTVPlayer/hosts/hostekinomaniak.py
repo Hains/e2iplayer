@@ -185,7 +185,7 @@ class eKinomaniak(CBaseHostClass):
 
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("eKinomaniak.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
-        url = self.getFullUrl('/ajax/search?search_term=%s') % urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('/ajax/search?search_term=%s') % urllib.parse.quote_plus(searchPattern)
         params = {'name':'category', 'category':'list_items', 'good_for_fav':False, 'url':url}
         self.listItems(params)
         

@@ -152,7 +152,7 @@ class WizjaTvApi(CBaseHostClass):
                     sts, tmp = self.cm.getPage(url, params)
                     if not sts: break
                     printDBG(tmp)
-                    videoUrl = urllib.unquote(self.cm.ph.getSearchGroups(tmp, '''['"]?src['"]?\s*:\s*['"](rtmp[^'^"]+?)['"]''')[0])
+                    videoUrl = urllib.parse.unquote(self.cm.ph.getSearchGroups(tmp, '''['"]?src['"]?\s*:\s*['"](rtmp[^'^"]+?)['"]''')[0])
                     killUrl  = self.getFullUrl(self.cm.ph.getSearchGroups(tmp, '''<a[^>]+?href=["']([^'^"]*?killme\.php[^'^"]*?)''')[0])
                     if videoUrl != '':
                         urlTab   = self.cm.ph.getSearchGroups(videoUrl, '''rtmp://([^/]+?)/([^/]+?)/([^/]+?)\?(.+?)&streamType''', 4)

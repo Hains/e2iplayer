@@ -454,7 +454,7 @@ class Kinox(CBaseHostClass):
         printDBG("Kinox.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
         cItem['get_list_mode'] = 'direct' 
-        cItem['url'] = self.getFullUrl('/Search.html?q=' + urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('/Search.html?q=' + urllib.parse.quote_plus(searchPattern))
         self.listsLangFilter(cItem, 'list_items')
         
     def getLinksForVideo(self, cItem):

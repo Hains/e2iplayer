@@ -130,7 +130,7 @@ class FightVideo(CBaseHostClass):
         keys.append('f_sd')
         for key in self.cacheFiltersKeys:
             baseKey = key[2:] # "f_"
-            if key in cItem: query[baseKey] = urllib.quote(cItem[key])
+            if key in cItem: query[baseKey] = urllib.parse.quote(cItem[key])
         
         query = urllib.urlencode(query)
         if '?' in url: url += '&' + query

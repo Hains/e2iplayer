@@ -263,7 +263,7 @@ class SeriesOnlineIO(CBaseHostClass):
         if self.MAIN_URL == None:
             self.selectDomain()
         
-        url = self.SEARCH_URL + '/' + urllib.quote_plus(searchPattern).replace('+', '-')
+        url = self.SEARCH_URL + '/' + urllib.parse.quote_plus(searchPattern).replace('+', '-')
         sts, data = self.getPage(url)
         if not sts: return
         cUrl = self.cm.meta['url']

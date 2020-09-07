@@ -459,7 +459,7 @@ class common:
             for name in cookiesDict:
                 if 0 < len(allowedNames) and name not in allowedNames: continue
                 value = cookiesDict[name]
-                if unquote: value = urllib.unquote(value)
+                if unquote: value = urllib.parse.unquote(value)
                 ret += '%s=%s; ' % (name, value)
         except Exception:
             printExc()
@@ -694,7 +694,7 @@ class common:
             pageUrl = url
             proxy_gateway = params.get('proxy_gateway', '')
             if proxy_gateway != '':
-                pageUrl = proxy_gateway.format(urllib.quote_plus(pageUrl, ''))
+                pageUrl = proxy_gateway.format(urllib.parse.quote_plus(pageUrl, ''))
             printDBG("pageUrl: [%s]" % pageUrl)
             
             curlSession.setopt(pycurl.URL, pageUrl)
@@ -1029,7 +1029,7 @@ class common:
                             get_data[name] = value
 #                        get_data = dict(re.findall(r'<input[^>]*name="([^"]*)"[^>]*value="([^"]*)"[^>]*>', verData))
                         get_data['jschl_answer'] = decoded['answer']
-                        post_data = 'r=%s&jschl_vc=%s&pass=%s&jschl_answer=%s' % (urllib.quote(get_data['r'],safe=''), urllib.quote(get_data['jschl_vc'],safe=''), urllib.quote(get_data['pass'],safe=''), get_data['jschl_answer'])
+                        post_data = 'r=%s&jschl_vc=%s&pass=%s&jschl_answer=%s' % (urllib.parse.quote(get_data['r'],safe=''), urllib.parse.quote(get_data['jschl_vc'],safe=''), urllib.parse.quote(get_data['pass'],safe=''), get_data['jschl_answer'])
                         verUrl = _getFullUrl2( verUrl, domain).replace('&amp;','&')
                         params2 = dict(params)
                         params2['load_cookie'] = True
@@ -1284,7 +1284,7 @@ class common:
         pageUrl = params['url']
         proxy_gateway = params.get('proxy_gateway', '')
         if proxy_gateway != '':
-            pageUrl = proxy_gateway.format(urllib.quote_plus(pageUrl, ''))
+            pageUrl = proxy_gateway.format(urllib.parse.quote_plus(pageUrl, ''))
         printDBG("pageUrl: [%s]" % pageUrl)
 
         if None != post_data:

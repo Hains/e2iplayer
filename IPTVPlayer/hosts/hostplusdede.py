@@ -245,7 +245,7 @@ class PlusDEDE(CBaseHostClass):
                 if '?' in url: url += '&' + query
                 else: url += '?' + query
             else:
-                url += urllib.quote(cItem['f_search_query'])
+                url += urllib.parse.quote(cItem['f_search_query'])
         
         sts, data = self.getPage(url)
         if not sts: return

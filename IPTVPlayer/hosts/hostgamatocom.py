@@ -107,7 +107,7 @@ class GamatoMovies(CBaseHostClass):
         page = cItem.get('page', 1)
         baseUrl = 'titles/paginate?_token=' + self.cacheFilters['token'] + '&perPage={0}'.format(perPage) + '&type={0}'.format(cItem['priv_type']) + '&availToStream=true' + '&page={0}'.format(page)
         if 'genres' in cItem:
-            baseUrl += '&genres%5B%5D={0}'.format(urllib.quote(cItem['genres']))
+            baseUrl += '&genres%5B%5D={0}'.format(urllib.parse.quote(cItem['genres']))
         if 'order' in cItem:
             baseUrl += '&order={0}'.format(cItem['order'])
         if 'year' in cItem:
@@ -223,7 +223,7 @@ class GamatoMovies(CBaseHostClass):
             if not sts: return
             self.cacheFilters['token'] = self.cm.ph.getSearchGroups(data, '''token\s*:\s*['"]([^'^"]+?)['"]''')[0]
         cItem = dict(cItem)
-        cItem.update({'priv_type':searchType, 'query':urllib.quote_plus(searchPattern)})
+        cItem.update({'priv_type':searchType, 'query':urllib.parse.quote_plus(searchPattern)})
         self.listItems(cItem, 'list_seasons')
     
     def getLinksForVideo(self, cItem):

@@ -296,7 +296,7 @@ class GamatoTV(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/groups/group/search?ie=UTF-8&sa=Search&q=' + urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('/groups/group/search?ie=UTF-8&sa=Search&q=' + urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem, 'explore_item')
         
     def getLinksForVideo(self, cItem):

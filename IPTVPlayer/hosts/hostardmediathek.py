@@ -294,7 +294,7 @@ class ARDmediathek(CBaseHostClass):
         printDBG("ARDmediathek.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
         if 'url' not in cItem:
-            cItem['url'] = self.getFullUrl('appdata/servlet/-/search?json&searchText={0}'.format(urllib.quote_plus(searchPattern)))
+            cItem['url'] = self.getFullUrl('appdata/servlet/-/search?json&searchText={0}'.format(urllib.parse.quote_plus(searchPattern)))
         self.listItems(cItem)
     
     def getLinksForVideo(self, cItem):

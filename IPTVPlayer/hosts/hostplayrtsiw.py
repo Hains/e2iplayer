@@ -420,7 +420,7 @@ class PlayRTSIW(CBaseHostClass):
        
         self.setMainUrl(self.URL_MAP[searchType.lower()]) 
         self.DEFAULT_ICON_URL = self.SEARCH_ICON_URL
-        pattern = urllib.quote(searchPattern)
+        pattern = urllib.parse.quote(searchPattern)
         
         baseUrl = 'search?searchQuery={0}&numberOf'.format(pattern)
         for type in ['tv', 'radio']:

@@ -235,7 +235,7 @@ class FilmPalastTo(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("FilmPalastTo.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/search/title/%s' %  urllib.quote(searchPattern))
+        cItem['url'] = self.getFullUrl('/search/title/%s' %  urllib.parse.quote(searchPattern))
         self.listItems(cItem, 'explore_item')
         
     def getLinksForVideo(self, cItem):

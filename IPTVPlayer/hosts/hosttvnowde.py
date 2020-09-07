@@ -248,7 +248,7 @@ class TVNowDE(CBaseHostClass):
         page = cItem.get('page', 1)
         genre = cItem.get('f_genre', '')
         
-        url = self.getFullUrl('/formats/genre/{0}?fields=*&filter=%7B%22station%22:%22none%22%7D&maxPerPage=500&order=NameLong+asc&page={1}'.format(urllib.quote(genre), page))
+        url = self.getFullUrl('/formats/genre/{0}?fields=*&filter=%7B%22station%22:%22none%22%7D&maxPerPage=500&order=NameLong+asc&page={1}'.format(urllib.parse.quote(genre), page))
         
         sts, data = self.getPage(url)
         if not sts: return 
@@ -387,7 +387,7 @@ class TVNowDE(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("TVNowDE.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/?s=' + urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('/?s=' + urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem, 'explore_item')
         
     def getLinksForVideo(self, cItem):

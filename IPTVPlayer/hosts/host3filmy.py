@@ -198,7 +198,7 @@ class _3Filmy(CBaseHostClass):
 
     def listSearchResult(self, cItem, searchPattern):
         printDBG("3filmy.listSearchResult cItem[%s], searchPattern[%s]" % (cItem, searchPattern))
-        url = self.getFullUrl('/ajax/search?q=%s') % urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('/ajax/search?q=%s') % urllib.parse.quote_plus(searchPattern)
         http_params = dict(self.defaultParams)
         sts, data = self.getPage(url, http_params)
         if not sts: return

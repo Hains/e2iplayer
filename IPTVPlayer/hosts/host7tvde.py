@@ -254,7 +254,7 @@ class C7tvDe(CBaseHostClass):
                 self.listItems(item, 'explore_item')
 
     def listSearchResult(self, cItem, searchPattern, searchType):
-        url = self.getFullUrl('/7tvsearch/search/(query)/%s/(type)/%s/(offset)/{0}/(limit)/{0}' % (urllib.quote(searchPattern), searchType))
+        url = self.getFullUrl('/7tvsearch/search/(query)/%s/(type)/%s/(offset)/{0}/(limit)/{0}' % (urllib.parse.quote(searchPattern), searchType))
         cItem = MergeDicts(cItem, {'category':'search_next', 'url':url})
         self.listSearchResultNext(cItem, 'explore_item')
 
@@ -365,7 +365,7 @@ class C7tvDe(CBaseHostClass):
             while tries < 2:
                 tries += 1
                 if tries == 2:
-                    url = 'http://savansec.de/browse.php?u={0}&b=0&f=norefer'.format(urllib.quote(url_api_url))
+                    url = 'http://savansec.de/browse.php?u={0}&b=0&f=norefer'.format(urllib.parse.quote(url_api_url))
                     params = dict(self.defaultParams)
                     params['header'] = dict(params['header'])
                     params['header']['Referer'] = url

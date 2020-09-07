@@ -607,7 +607,7 @@ class TvpVod(CBaseHostClass, CaptchaHelper):
             
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("TvpVod.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
-        url = TvpVod.SEARCH_VOD_URL % urllib.quote(searchPattern)
+        url = TvpVod.SEARCH_VOD_URL % urllib.parse.quote(searchPattern)
         cItem = dict(cItem)
         cItem['url'] = url
         

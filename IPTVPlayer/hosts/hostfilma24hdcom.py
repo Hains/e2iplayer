@@ -170,9 +170,9 @@ class Filma24hdCom(CBaseHostClass):
         self.listsTab(tab, params)
         
     def listSearchResult(self, cItem, searchPattern, searchType):
-        searchPattern = urllib.quote_plus(searchPattern)
+        searchPattern = urllib.parse.quote_plus(searchPattern)
         cItem = dict(cItem)
-        cItem['url'] = self.SRCH_URL + urllib.quote_plus(searchPattern)
+        cItem['url'] = self.SRCH_URL + urllib.parse.quote_plus(searchPattern)
         self.listItems(cItem)
         
     def getLinksForVideo(self, cItem):

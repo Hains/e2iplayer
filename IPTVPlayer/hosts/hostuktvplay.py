@@ -211,7 +211,7 @@ class UKTVPlay(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("UKTVPlay.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         try:
-            url = self.tmpUrl % ('search?q=%s&' % urllib.quote(searchPattern))
+            url = self.tmpUrl % ('search?q=%s&' % urllib.parse.quote(searchPattern))
             
             sts, data = self.getPage(url)
             if not sts: return

@@ -271,7 +271,7 @@ class GoMovies(CBaseHostClass):
         if self.MAIN_URL == None:
             self.selectDomain()
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/browse-word/%s/' % urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('/browse-word/%s/' % urllib.parse.quote_plus(searchPattern))
         cItem.update({'search':True, 'category':'list_items'})
         self.listItems(cItem, 'explore_item')
     

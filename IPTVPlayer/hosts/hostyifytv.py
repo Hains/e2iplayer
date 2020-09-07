@@ -278,7 +278,7 @@ class YifyTV(CBaseHostClass):
         printDBG("YifyTV.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
         currItem = dict(cItem)
-        currItem['url'] = self.SRCH_URL + urllib.quote_plus(searchPattern)
+        currItem['url'] = self.SRCH_URL + urllib.parse.quote_plus(searchPattern)
         self.listItems(currItem)
         
     def getLinksForVideo(self, cItem):

@@ -339,7 +339,7 @@ class AllBoxTV(CBaseHostClass):
 
         self.cacheSearch = {}
 
-        url = self.getFullUrl('/szukaj?query=') + urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('/szukaj?query=') + urllib.parse.quote_plus(searchPattern)
         sts, data = self.getPage(url)
         if not sts: return
 

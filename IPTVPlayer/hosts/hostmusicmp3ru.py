@@ -221,7 +221,7 @@ class MusicMp3Ru(CBaseHostClass):
         printDBG("MusicMp3Ru.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/search.html?text=%s&all=%s' % (urllib.quote(searchPattern), searchType))
+        cItem['url'] = self.getFullUrl('/search.html?text=%s&all=%s' % (urllib.parse.quote(searchPattern), searchType))
         if searchType == 'songs': 
             self.listSongsItems(cItem)
         elif searchType == 'albums':

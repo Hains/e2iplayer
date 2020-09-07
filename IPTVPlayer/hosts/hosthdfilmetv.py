@@ -430,7 +430,7 @@ class HDFilmeTV(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("HDFilmeTV.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['search_pattern'] = urllib.quote(searchPattern) 
+        cItem['search_pattern'] = urllib.parse.quote(searchPattern) 
         cItem['url'] = self.SEARCH_URL
         self.listItems(cItem, 'explore_item')
         

@@ -311,7 +311,7 @@ class Ipla(CBaseHostClass):
             self.getCategories(catId, refresh)
     #WYSZUKAJ
         elif category == 'Wyszukaj':
-            pattern = urllib.quote_plus(searchPattern)
+            pattern = urllib.parse.quote_plus(searchPattern)
             self.getVideosList(Ipla.SEARCH_URL + pattern)
     #HISTORIA WYSZUKIWANIA
         elif category == "search_history":

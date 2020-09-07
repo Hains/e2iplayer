@@ -195,7 +195,7 @@ class LibreStream(CBaseHostClass):
         
     def listSearchResult(self, cItem, searchPattern, searchType):
         searchPattern = searchPattern
-        searchPattern = urllib.quote_plus(searchPattern)
+        searchPattern = urllib.parse.quote_plus(searchPattern)
         cItem = dict(cItem)
         cItem['url'] = self.SEARCH_URL + searchPattern + '&search_start=%s' % cItem.get('page', 1)
         #cItem['category'] = 'list_items'

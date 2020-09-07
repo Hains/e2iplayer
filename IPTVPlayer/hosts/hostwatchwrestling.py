@@ -177,7 +177,7 @@ class Watchwrestling(CBaseHostClass):
             self.addVideo(params)
         
     def listSearchResult(self, cItem, searchPattern, searchType):
-        searchPattern = urllib.quote_plus(searchPattern)
+        searchPattern = urllib.parse.quote_plus(searchPattern)
         cItem = dict(cItem)
         cItem['url']  = self.SRCH_URL + searchPattern
         cItem['sort'] = searchType

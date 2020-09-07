@@ -75,7 +75,7 @@ class Raiplay(CBaseHostClass):
             url = self.MAIN_URL + url
 
         url = url.replace(" ", "%20")
-        #url = urllib.quote(url, safe="%/:=&?~#+!$,;'@()*[]")
+        #url = urllib.parse.quote(url, safe="%/:=&?~#+!$,;'@()*[]")
             
         #printDBG("PathID: " + url)
         
@@ -444,7 +444,7 @@ class Raiplay(CBaseHostClass):
             self.addVideo(params)
     
     def getLastContentByTag(self, tags="", numContents=16):
-        tags = urllib.quote(tags)
+        tags = urllib.parse.quote(tags)
         domain = "RaiTv"
         xsl = "rai_tv-statistiche-raiplay-json"
         

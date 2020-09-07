@@ -411,7 +411,7 @@ class SVTPlaySE(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("SVTPlaySE.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
-        baseUrl = self.getFullUrl('sok?q=' + urllib.quote_plus(searchPattern))
+        baseUrl = self.getFullUrl('sok?q=' + urllib.parse.quote_plus(searchPattern))
         cItem = dict(cItem)
         cItem['url'] = baseUrl
         self.explorePage(cItem, 'list_tab_items')

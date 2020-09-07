@@ -269,7 +269,7 @@ class VUMEDI(CBaseHostClass):
         self.tryTologin()
         
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/search/?q=') + urllib.quote(searchPattern) 
+        cItem['url'] = self.getFullUrl('/search/?q=') + urllib.parse.quote(searchPattern) 
         cItem['category'] = 'list_items'
         self.listItems(cItem)
 

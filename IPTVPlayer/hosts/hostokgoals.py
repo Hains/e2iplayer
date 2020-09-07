@@ -181,7 +181,7 @@ class OkGoals(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("KissCartoonMe.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        url = self.getFullUrl('search.php?dosearch=yes&search_in_archives=yes&title=') + urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('search.php?dosearch=yes&search_in_archives=yes&title=') + urllib.parse.quote_plus(searchPattern)
         sts, data = self.cm.getPage(url)
         if not sts: return
         

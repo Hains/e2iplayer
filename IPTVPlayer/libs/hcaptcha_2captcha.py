@@ -37,7 +37,7 @@ class UnCaptchahCaptcha:
         token = ''
         errorMsgTab = []
         apiKey = config.plugins.iptvplayer.api_key_2captcha.value
-        apiUrl = self.getFullUrl('/in.php?key=') + apiKey + '&method=hcaptcha&sitekey=' + sitekey + '&json=1&pageurl=' + urllib.quote(referer)
+        apiUrl = self.getFullUrl('/in.php?key=') + apiKey + '&method=hcaptcha&sitekey=' + sitekey + '&json=1&pageurl=' + urllib.parse.quote(referer)
         try:
             token = ''
             sts, data = self.cm.getPage(apiUrl)

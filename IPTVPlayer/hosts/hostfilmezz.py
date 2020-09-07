@@ -149,7 +149,7 @@ class FilmezzEU(CBaseHostClass):
         
         for key in self.cacheFiltersKeys:
             baseKey = key[2:] # "f_"
-            if key in cItem: query[baseKey] = urllib.quote(cItem[key])
+            if key in cItem: query[baseKey] = urllib.parse.quote(cItem[key])
         
         query = urllib.urlencode(query)
         if '?' in url: url += '&' + query
@@ -257,7 +257,7 @@ class FilmezzEU(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("FilmezzEU.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('kereses.php?s=' + urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('kereses.php?s=' + urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem, 'explore_item')
         
     def getLinksForVideo(self, cItem):

@@ -133,7 +133,7 @@ class ClassicCinemaOnline(CBaseHostClass):
         printDBG("ClassicCinemaOnline.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         page = cItem.get('page', 0)
         if page == 0:
-            url = self.getFullUrl('/component/search/?searchword=%s&ordering=newest&searchphrase=all&limit=%s' % (urllib.quote(searchPattern), self.getMaxDisplayItems()))
+            url = self.getFullUrl('/component/search/?searchword=%s&ordering=newest&searchphrase=all&limit=%s' % (urllib.parse.quote(searchPattern), self.getMaxDisplayItems()))
         else:
             url = cItem['url']
         

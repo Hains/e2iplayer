@@ -181,7 +181,7 @@ class BajeczkiOrg(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("FilmeHD.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem.update({'category':'list_items', 'url':self.getFullUrl('/?s=') + urllib.quote_plus(searchPattern)})
+        cItem.update({'category':'list_items', 'url':self.getFullUrl('/?s=') + urllib.parse.quote_plus(searchPattern)})
         self.listItems(cItem)
         
     def handleService(self, index, refresh = 0, searchPattern = '', searchType = ''):

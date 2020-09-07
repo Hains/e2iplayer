@@ -216,7 +216,7 @@ class KreskoweczkiPL(CBaseHostClass):
         printDBG("KreskoweczkiPL.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
         cItem['category'] = 'list_items'
-        cItem['url'] = self.getFullUrl('/szukaj?query=' + urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('/szukaj?query=' + urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem)
         
     def getFavouriteData(self, cItem):

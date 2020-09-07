@@ -257,7 +257,7 @@ class TreeTv(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("TreeTv.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
-        baseUrl = self.getFullUrl('search?usersearch={0}&filter=name'.format(urllib.quote_plus(searchPattern)))
+        baseUrl = self.getFullUrl('search?usersearch={0}&filter=name'.format(urllib.parse.quote_plus(searchPattern)))
         sts, data = self.getPage(baseUrl)
         if not sts: return
         self.setMainUrl(self.cm.meta['url'])

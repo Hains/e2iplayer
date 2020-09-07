@@ -164,7 +164,7 @@ class WgranePL(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("WgranePL.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/watch.html?search=') + urllib.quote_plus(searchPattern)
+        cItem['url'] = self.getFullUrl('/watch.html?search=') + urllib.parse.quote_plus(searchPattern)
         cItem['category'] = 'list_items'
         self.listItems(cItem, 'list_playlist')
     

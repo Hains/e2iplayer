@@ -267,7 +267,7 @@ class Movs4uCOM(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("Movs4uCOM.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/?s=' + urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('/?s=' + urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem, 'explore_item')
         
     def getLinksForVideo(self, cItem):

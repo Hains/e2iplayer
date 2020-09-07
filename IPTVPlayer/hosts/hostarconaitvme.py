@@ -69,7 +69,7 @@ class ArconaitvME(CBaseHostClass):
         if post_data != None: HTTP_HEADER['Content-Type'] = 'application/x-www-form-urlencoded'
         params.update({'header':HTTP_HEADER})
         if self.isProxyNeeded( url ):
-            proxy = self.proxyUrl.format(urllib.quote(url, ''))
+            proxy = self.proxyUrl.format(urllib.parse.quote(url, ''))
             params['header']['Referer'] = proxy
             #params['header']['Cookie'] = 'flags=2e5;'
             url = proxy
@@ -81,7 +81,7 @@ class ArconaitvME(CBaseHostClass):
     def getFullIconUrl(self, url):
         url = self.getFullUrl(url)
         if self.isProxyNeeded( url ):
-            proxy = self.proxyUrl.format(urllib.quote(url, ''))
+            proxy = self.proxyUrl.format(urllib.parse.quote(url, ''))
             params = {}
             params['User-Agent'] = self.HEADER['User-Agent'],
             params['Referer'] = proxy

@@ -285,7 +285,7 @@ class PrijevodiOnline(CBaseSubProviderClass):
         for item in data:
             url = self.cm.ph.getSearchGroups(item, 'href="(https?://[^"]+?\.(?:rar|zip))"')[0]
             if not self.cm.isValidUrl(url): continue
-            title = urllib.unquote(url.split('/')[-1])
+            title = urllib.parse.unquote(url.split('/')[-1])
             url = url.replace(' ', '%20')
             
             desc   = self.cleanHtmlStr(item)

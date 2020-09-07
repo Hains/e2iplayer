@@ -192,7 +192,7 @@ class UrlParser:
     def getParam(self, params, name):
         try:
             result = params[name]
-            result = urllib.unquote_plus(result)
+            result = urllib.parse.unquote_plus(result)
             return result
         except Exception:
             return None

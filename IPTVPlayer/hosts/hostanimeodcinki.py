@@ -181,10 +181,10 @@ class AnimeOdcinkiPL(CBaseHostClass):
         for key in self.filtersTab:
             iKey = 'f_' + key
             if iKey in cItem:
-                getParams.append('%s=%s' % (urllib.quote(key), urllib.quote(cItem[iKey])))
+                getParams.append('%s=%s' % (urllib.parse.quote(key), urllib.parse.quote(cItem[iKey])))
                 
         if 'f_search' in cItem:
-            getParams.append('s=%s' % (urllib.quote_plus(cItem['f_search'])))
+            getParams.append('s=%s' % (urllib.parse.quote_plus(cItem['f_search'])))
         
         baseUrl = cItem['url']
         if page > 1: baseUrl += '/strona/%s' % page

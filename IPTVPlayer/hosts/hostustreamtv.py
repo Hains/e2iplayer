@@ -156,9 +156,9 @@ class UstreamTV(CBaseHostClass):
             self.addDir(params)
         
     def listSearchResult(self, cItem, searchPattern, searchType):
-        searchPattern = urllib.quote_plus(searchPattern)
+        searchPattern = urllib.parse.quote_plus(searchPattern)
         cItem = dict(cItem)
-        cItem['q']  = urllib.quote_plus(searchPattern)
+        cItem['q']  = urllib.parse.quote_plus(searchPattern)
         cItem['filters'] = {}
         self.listFilters(cItem, 'category', 'filter_type')
         

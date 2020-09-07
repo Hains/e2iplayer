@@ -160,7 +160,7 @@ class MovieRulzSX(CBaseHostClass):
         cItem = dict(cItem)
         if 1 == cItem.get('page', 1):
             cItem['category'] = 'list_items'
-            cItem['url'] = self.getFullUrl('/?s=') + urllib.quote_plus(searchPattern)
+            cItem['url'] = self.getFullUrl('/?s=') + urllib.parse.quote_plus(searchPattern)
         self.listItems(cItem)
         
     def getLinksForVideo(self, cItem):

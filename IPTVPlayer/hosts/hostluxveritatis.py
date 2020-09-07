@@ -263,13 +263,13 @@ class LuxVeritatisPL(CBaseHostClass):
         if searchType == 'radio':
             self.MAIN_URL = self.MAIN_URL_R
             cItem['category'] = 'list_radio_items'
-            cItem['url'] = self.getFullUrl('/?s=') + urllib.quote_plus(searchPattern)
+            cItem['url'] = self.getFullUrl('/?s=') + urllib.parse.quote_plus(searchPattern)
             cItem['icon'] = self.ICON_URL_R
             self.listRadioItems(cItem, 'explore_radio_item')
         elif searchType == 'tv':
             self.MAIN_URL = self.MAIN_URL_T
             cItem['category'] = 'list_tv_trwam_items'
-            cItem['url'] = self.getFullUrl('/filmy?Filter.Query=') + urllib.quote_plus(searchPattern)
+            cItem['url'] = self.getFullUrl('/filmy?Filter.Query=') + urllib.parse.quote_plus(searchPattern)
             cItem['icon'] = self.ICON_URL_T
             self.listTVTrwamItems(cItem)
             

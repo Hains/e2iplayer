@@ -228,7 +228,7 @@ def unpackJS(data, decryptionFun, addCode=''):
     except Exception:
         printExc('unpackJS compile algo code EXCEPTION')
         return ''
-    vGlobals = {"__builtins__": None, 'string': string, 'decodeURIComponent':urllib.unquote, 'unescape':urllib.unquote}
+    vGlobals = {"__builtins__": None, 'string': string, 'decodeURIComponent':urllib.parse.unquote, 'unescape':urllib.parse.unquote}
     vLocals = { 'paramsTouple': None }
 
     try:

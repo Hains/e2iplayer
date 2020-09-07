@@ -50,7 +50,7 @@ class SubtitlesGrProvider(CBaseSubProviderClass):
     def listSubItems(self, cItem, nextCategory):
         printDBG("SubtitlesGrProvider.listSubItems")
         page = cItem.get('page', 0)
-        keywords = urllib.quote_plus(self.params['confirmed_title'])
+        keywords = urllib.parse.quote_plus(self.params['confirmed_title'])
         baseUrl  = "http://gr.greek-subtitles.com/search.php?page=%s&name=%s" % (page, keywords)
         
         url = self.getFullUrl(baseUrl)

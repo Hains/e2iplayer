@@ -335,7 +335,7 @@ class MRPiracyGQ(CBaseHostClass, CaptchaHelper):
             return
         
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('%s.php?&searchBox=' % type) + urllib.quote_plus(searchPattern)
+        cItem['url'] = self.getFullUrl('%s.php?&searchBox=' % type) + urllib.parse.quote_plus(searchPattern)
         self.listItems(cItem, 'list_seasons')
         
     def getLinksForVideo(self, cItem):

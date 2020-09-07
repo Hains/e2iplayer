@@ -235,16 +235,16 @@ class RTBFBE(CBaseHostClass):
         newData = ''
         if isinstance(obj, list):
             for idx in range(len(obj)):
-                newData += self.serParams(obj[idx], data + urllib.quote('[%d]' % idx))
+                newData += self.serParams(obj[idx], data + urllib.parse.quote('[%d]' % idx))
         elif isinstance(obj, dict):
             for key in obj:
-                newData += self.serParams(obj[key], data + urllib.quote('[%s]' % key))
+                newData += self.serParams(obj[key], data + urllib.parse.quote('[%s]' % key))
         elif obj == True:
             newData += data + '=true&'
         elif obj == False:
             newData += data + '=false&'
         else:
-            newData += data + '=%s&' % urllib.quote(str(obj))
+            newData += data + '=%s&' % urllib.parse.quote(str(obj))
         return newData
         
     def listSections(self, cItem, nextCategory1, nextCategory2):
@@ -384,7 +384,7 @@ class RTBFBE(CBaseHostClass):
     
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("RTBFBE.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
-        params = {'name':'category', 'type':'category', 'default_media_type':searchType, 'url':self.getFullUrl('/auvio/recherche?q=%s&type=%s') % (urllib.quote_plus(searchPattern), searchType)}
+        params = {'name':'category', 'type':'category', 'default_media_type':searchType, 'url':self.getFullUrl('/auvio/recherche?q=%s&type=%s') % (urllib.parse.quote_plus(searchPattern), searchType)}
         self.listSections(params, 'list_sub_items', 'sections')
         
     def getUserGeoLoc(self):

@@ -167,7 +167,7 @@ class OpenSubtitlesRest(CBaseSubProviderClass):
                 title = self.imdbGetOrginalByTitle(cItem['imdbid'])[1].get('title', cItem.get('base_title', ''))
             else:
                 title = self.params['confirmed_title']
-            queryTab.append('query-%s' % urllib.quote(title))
+            queryTab.append('query-%s' % urllib.parse.quote(title))
             
         if langid != '':
             queryTab.append('sublanguageid-%s' % langid)

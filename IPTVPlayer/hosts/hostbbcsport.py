@@ -437,7 +437,7 @@ class BBCSport(CBaseHostClass):
             self.setMainUrl(cUrl)
             
             try:
-                url = self.sessionUrl + '?ptrt=' + urllib.quote(cUrl.split('?', 1)[0]) + '&userOrigin=sport&context=sport'
+                url = self.sessionUrl + '?ptrt=' + urllib.parse.quote(cUrl.split('?', 1)[0]) + '&userOrigin=sport&context=sport'
                 sts, data = self.getPage(url)
                 if not sts:
                     msg = _(netErrorMsg) + _('\nError[2].')

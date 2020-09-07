@@ -188,10 +188,10 @@ class FilmeOnlineTo(CBaseHostClass):
             valsTab = []
             if 'f_search' not in cItem:
                 for key in ['f_tip', 'f_genres[]', 'f_year', 'f_quality', 'f_subbed', 'f_sort']:
-                    valsTab.append(urllib.quote(cItem.get(key, 'all')))
+                    valsTab.append(urllib.parse.quote(cItem.get(key, 'all')))
                 url = self.getFullUrl('tip/' + '/'.join(valsTab))
             else:
-                url = self.getFullUrl('search/' + urllib.quote_plus(cItem['f_search']))
+                url = self.getFullUrl('search/' + urllib.parse.quote_plus(cItem['f_search']))
             sts, data = self.getPage(url)
             if not sts: return
             

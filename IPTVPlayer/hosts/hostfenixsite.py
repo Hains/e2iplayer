@@ -167,7 +167,7 @@ class Fenixsite(CBaseHostClass):
 
     def listSearchResult(self, cItem, searchPattern, searchType):
 
-        url = self.getFullUrl('/api/private/get/search?query=%s&limit=100&f=1' % urllib.quote(searchPattern))
+        url = self.getFullUrl('/api/private/get/search?query=%s&limit=100&f=1' % urllib.parse.quote(searchPattern))
         sts, data = self.getPage(url)
         if not sts: return
         self.setMainUrl(self.cm.meta['url'])
@@ -210,7 +210,7 @@ class Fenixsite(CBaseHostClass):
                     if it.startswith('"') or it.startswith("'"):
                         apiLink += it[1:-1]
                     elif 'key' in it:
-                        apiLink += urllib.quote_plus(key)
+                        apiLink += urllib.parse.quote_plus(key)
                     elif 'count' in it:
                         apiLink += '1'
                 apiLink = self.getFullUrl(apiLink)

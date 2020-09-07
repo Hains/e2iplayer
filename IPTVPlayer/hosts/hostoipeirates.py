@@ -333,7 +333,7 @@ class OipeiratesOnline(CBaseHostClass):
         printDBG("OipeiratesOnline.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
         cItem['url'] = self.getMainUrl()
-        cItem['url_suffix'] = '?s=' + urllib.quote_plus(searchPattern)
+        cItem['url_suffix'] = '?s=' + urllib.parse.quote_plus(searchPattern)
         cItem['mode'] = 'search'
         self.listItems(cItem)
     

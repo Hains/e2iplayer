@@ -300,7 +300,7 @@ class NGolosCOM(CBaseHostClass):
         cItem = dict(cItem)
         page = cItem.get('page', 1)
         if page == 1:
-            cItem['url'] = self.SEARCH_URL + urllib.quote_plus(searchPattern)
+            cItem['url'] = self.SEARCH_URL + urllib.parse.quote_plus(searchPattern)
         self.listItems(cItem, 'explore_item')
     
     def getLinksForVideo(self, cItem):

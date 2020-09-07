@@ -178,7 +178,7 @@ class Redbull(CBaseHostClass):
 
     def listSearchResult(self, cItem, searchPattern, searchType):
 
-        url = self.REDBULL_API + "search?q=%s" % urllib.quote_plus(searchPattern)
+        url = self.REDBULL_API + "search?q=%s" % urllib.parse.quote_plus(searchPattern)
         cItem = MergeDicts(cItem, {'category':'list_search', 'url':url})
         self.listSearchItems(cItem)
 

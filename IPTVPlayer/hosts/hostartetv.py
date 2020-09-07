@@ -348,7 +348,7 @@ class ArteTV(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("ArteTV.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
-        url = self.getFullUrl('/%s/search/?q=%s' % (searchType, urllib.quote_plus(searchPattern)))
+        url = self.getFullUrl('/%s/search/?q=%s' % (searchType, urllib.parse.quote_plus(searchPattern)))
         params = dict(cItem)
         params.update({'url':url, 'category':'list_items', 'f_lang':searchType})
         self.listItems(params, 'list_section_items')

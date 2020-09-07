@@ -177,7 +177,7 @@ class AkoAm(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("AkoAm.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
-        url = self.getFullUrl('/search/') + urllib.quote(searchPattern)
+        url = self.getFullUrl('/search/') + urllib.parse.quote(searchPattern)
         cItem = dict(cItem)
         cItem.update({'url':url, 'category':'list_items'})
         self.listItems(cItem, 'explore_item')

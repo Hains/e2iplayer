@@ -128,7 +128,7 @@ class StreamingSeriesWatch(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("StreamingSeriesWatch.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.MAIN_URL + '?s=' + urllib.quote(searchPattern)
+        cItem['url'] = self.MAIN_URL + '?s=' + urllib.parse.quote(searchPattern)
         self.listItems(cItem, 'episodes')
     
     def getLinksForVideo(self, cItem):

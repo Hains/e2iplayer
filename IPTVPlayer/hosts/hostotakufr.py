@@ -47,7 +47,7 @@ class OtakuFR(CBaseHostClass):
     def getFullUrl(self, url):
         url = CBaseHostClass.getFullUrl(self, url)
         try: url.encode('ascii')
-        except Exception: url = urllib.quote(url, safe="/:&?%@[]()*$!+-=|<>;")
+        except Exception: url = urllib.parse.quote(url, safe="/:&?%@[]()*$!+-=|<>;")
         url = url.replace(' ', '%20')
         return url
         

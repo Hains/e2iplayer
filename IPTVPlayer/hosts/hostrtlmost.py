@@ -290,7 +290,7 @@ class RtlMostHU(CBaseHostClass):
         else: return
         page = cItem.get('page',0)
         sts, data = self.cm.getPage(self.QUERY_URL.format(queryType), self.queryParams,
-          query.format( urllib.quote(searchPattern), page, 50 ))
+          query.format( urllib.parse.quote(searchPattern), page, 50 ))
         if not sts: return
         try:
             data = json_loads(data)

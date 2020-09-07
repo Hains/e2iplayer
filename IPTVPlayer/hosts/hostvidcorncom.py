@@ -383,7 +383,7 @@ class VidCorn(CBaseHostClass, CaptchaHelper):
     def listSearchResult(self, cItem, searchPattern, searchType):
         self.tryTologin()
 
-        url = self.getFullUrl('/buscar/') + urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('/buscar/') + urllib.parse.quote_plus(searchPattern)
         sts, data = self.getPage(url)
         if not sts: return
         self.setMainUrl(self.cm.meta['url'])

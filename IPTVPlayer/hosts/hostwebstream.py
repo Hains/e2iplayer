@@ -223,7 +223,7 @@ class HasBahCa(CBaseHostClass):
         
         if False and 'hasbahcaiptv.com' in url:
             printDBG(url)
-            proxy = 'http://www.proxy-german.de/index.php?q={0}&hl=2e5'.format(urllib.quote_plus(url))
+            proxy = 'http://www.proxy-german.de/index.php?q={0}&hl=2e5'.format(urllib.parse.quote_plus(url))
             params['header']['Referer'] = proxy
             url = proxy
         return self.cm.getPage(url, params, post_data)
@@ -1115,7 +1115,7 @@ class IPTVHost(CHostBase):
                     if '84.114.88.26' == url.meta.get('X-Forwarded-For', ''):
                         url.meta['iptv_m3u8_custom_base_link'] = '' + url
                         url.meta['iptv_proxy_gateway'] = 'http://webproxy.at/surf/printer.php?u={0}&b=192&f=norefer'
-                        url.meta['Referer'] =  url.meta['iptv_proxy_gateway'].format(urllib.quote_plus(url))
+                        url.meta['Referer'] =  url.meta['iptv_proxy_gateway'].format(urllib.parse.quote_plus(url))
                         meta = url.meta
                         tmpList = getDirectM3U8Playlist(url, checkExt=False)
                         if 1 == len(tmpList):

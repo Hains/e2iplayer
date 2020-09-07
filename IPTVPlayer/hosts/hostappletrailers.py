@@ -151,9 +151,9 @@ class TrailersApple(CBaseHostClass):
             printExc()
     
     def listSearchResult(self, cItem, searchPattern, searchType):
-        searchPattern = urllib.quote_plus(searchPattern)
+        searchPattern = urllib.parse.quote_plus(searchPattern)
         
-        url = self.getFullUrl('/trailers/home/scripts/quickfind.php?q=') + urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('/trailers/home/scripts/quickfind.php?q=') + urllib.parse.quote_plus(searchPattern)
         self.listItems({'url':url}, 'explore_item')
         
     def getLinksForVideo(self, cItem):

@@ -57,7 +57,7 @@ class DDLMe(CBaseHostClass):
     
     def getRealUrl(self, url):
         if config.plugins.iptvplayer.ddlme_proxy.value == 'webproxy' and url != None and 'browse.php?u=' in url:
-            url = urllib.unquote( self.cm.ph.getSearchGroups(url+'&', '''\?u=(http[^&]+?)&''')[0] )
+            url = urllib.parse.unquote( self.cm.ph.getSearchGroups(url+'&', '''\?u=(http[^&]+?)&''')[0] )
         return url
     
     def getFullUrl(self, url, baseUrl=None):
@@ -85,7 +85,7 @@ class DDLMe(CBaseHostClass):
         proxy = config.plugins.iptvplayer.ddlme_proxy.value
         if proxy == 'webproxy':
             addParams = dict(addParams)
-            proxy = 'http://n-guyot.fr/exit/browse.php?u={0}&b=4'.format(urllib.quote(baseUrl, ''))
+            proxy = 'http://n-guyot.fr/exit/browse.php?u={0}&b=4'.format(urllib.parse.quote(baseUrl, ''))
             addParams['header']['Referer'] = proxy + '&f=norefer'
             baseUrl = proxy
         elif proxy != 'None':
@@ -451,10 +451,10 @@ class DDLMe(CBaseHostClass):
             printExc()
         
     def listSearchResult(self, cItem, searchPattern, searchType):
-        searchPattern = urllib.quote_plus(searchPattern)
+        searchPattern = urllib.parse.quote_plus(searchPattern)
         cItem = dict(cItem)
         cItem['category'] = 'list_items'
-        cItem['url'] = self.getFullUrl('/search_99/?q=') + urllib.quote_plus(searchPattern)
+        cItem['url'] = self.getFullUrl('/search_99/?q=') + urllib.parse.quote_plus(searchPattern)
         sts, data = self.getPage(cItem['url'])
         if not sts: return
         cUrl = self.cm.meta['url']

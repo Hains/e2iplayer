@@ -298,7 +298,7 @@ class SpiegelTv(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("SpiegelTv.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/search/') + urllib.quote_plus(searchPattern)
+        cItem['url'] = self.getFullUrl('/search/') + urllib.parse.quote_plus(searchPattern)
         cItem['category'] = 'list_items'
         cItem['f_method'] = 'search'
         cItem['f_param'] = searchPattern

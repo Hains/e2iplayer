@@ -173,7 +173,7 @@ class StreamingHDFun(CBaseHostClass):
         if searchType == 'movies': url = '/'
         else: url = '/serietv/'
         
-        url = self.getFullUrl(url + '?s=') + urllib.quote_plus(searchPattern)
+        url = self.getFullUrl(url + '?s=') + urllib.parse.quote_plus(searchPattern)
         cItem = dict(cItem)
         cItem.update({'url':url, 'category':'list_items'})
         self.listItems(cItem, 'explore_item')

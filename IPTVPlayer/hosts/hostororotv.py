@@ -137,7 +137,7 @@ class OroroTV(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("OroroTV.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
-        url = self.getFullUrl('/api/frontend/search?query=') + urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('/api/frontend/search?query=') + urllib.parse.quote_plus(searchPattern)
         
         sts, data = self.getPage(url)
         if not sts: return

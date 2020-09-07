@@ -259,7 +259,7 @@ class SerijeOnline(CBaseHostClass):
         printDBG("SerijeOnline.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
         if 0 == cItem.get('page', 0):
-            cItem['url'] = self.getFullUrl('search.php?keywords=%s' % urllib.quote_plus(searchPattern))
+            cItem['url'] = self.getFullUrl('search.php?keywords=%s' % urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem, 'explore_item')
         
     def getLinksForVideo(self, cItem):

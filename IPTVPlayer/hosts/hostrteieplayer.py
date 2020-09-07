@@ -191,7 +191,7 @@ class RteIE(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("AnimeTo.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/player/search/?q=' + urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('/player/search/?q=' + urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem, 'list_items')
         
     def getLinksForVideo(self, cItem):

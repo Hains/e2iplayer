@@ -270,7 +270,7 @@ class XrysoiSE(CBaseHostClass):
         printDBG("XrysoiSE.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
         cItem['url'] = self.MAIN_URL
-        cItem['url_suffix'] = self.SEARCH_SUFFIX + urllib.quote_plus(searchPattern)
+        cItem['url_suffix'] = self.SEARCH_SUFFIX + urllib.parse.quote_plus(searchPattern)
         cItem['mode'] = 'search'
         self.listItems(cItem)
     

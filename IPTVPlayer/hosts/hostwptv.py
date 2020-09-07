@@ -220,7 +220,7 @@ class WpTV(CBaseHostClass):
         cItem = dict(cItem)
         page = cItem.get('page', 1)
         if page == 1:
-            cItem['url'] = self.getFullUrl('/query,%s,szukaj.html?' % urllib.quote(searchPattern))
+            cItem['url'] = self.getFullUrl('/query,%s,szukaj.html?' % urllib.parse.quote(searchPattern))
         self.listEpisodes(cItem)
     
     def getLinksForVideo(self, cItem):

@@ -165,7 +165,7 @@ class MLBStreamTVApi(CBaseHostClass):
         
         cUrl = self.cm.meta['url']
         tmp = self.cm.ph.getDataBeetwenMarkers(data, 'unescape(', ')', False)[1].strip()
-        data = urllib.unquote(data[1:-1]) + data
+        data = urllib.parse.unquote(data[1:-1]) + data
         
         printDBG("+++")
         printDBG(data)

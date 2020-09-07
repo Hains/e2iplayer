@@ -455,7 +455,7 @@ class YoutubeIE(object):
 
             sub_lang_list = {}
             for lang in caption_translation_languages.split(','):
-                lang_qs = compat_parse_qs(urllib.unquote_plus(lang))
+                lang_qs = compat_parse_qs(urllib.parse.unquote_plus(lang))
                 sub_lang = lang_qs.get('lc', [None])[0]
                 if not sub_lang: continue
                 caption_qs.update({

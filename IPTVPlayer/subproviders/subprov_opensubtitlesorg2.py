@@ -183,7 +183,7 @@ class OpenSubtitles(CBaseSubProviderClass):
         url = cItem.get('url', '')
         if url == '':
             query = {'id':8, 'action':'search', 'SubSumCD':'', 'Genre':'', 'MovieByteSize':'', 'MovieLanguage':'', 'MovieImdbRatingSign':'1', 'MovieImdbRating':'', 'MovieCountry':'', 'MovieYearSign':'1', 'MovieYear':'', 'MovieFPS':'', 'SubFormat':'', 'SubAddDate':'', 'Uploader':'', 'IDUser':'', 'Translator':'', 'IMDBID':'', 'MovieHash':'', 'IDMovie':''}
-            keywords = urllib.quote_plus(self.params['confirmed_title'])
+            keywords = urllib.parse.quote_plus(self.params['confirmed_title'])
             subLanguageID = cItem.get('sub_language_id', '')
             searchOnlyTVSeries = cItem.get('search_only_tv_series', '')
             searchOnlyMovies   = cItem.get('search_only_movies', '')

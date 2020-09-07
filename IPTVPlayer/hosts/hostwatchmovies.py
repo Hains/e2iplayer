@@ -195,7 +195,7 @@ class watchMovies(CBaseHostClass):
 
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("watchMovies.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
-        url = self.getFullUrl('/?s=%s') % urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('/?s=%s') % urllib.parse.quote_plus(searchPattern)
         params = {'name':'category', 'category':'list_items', 'good_for_fav':False, 'url':url}
         self.listItems(params)
         

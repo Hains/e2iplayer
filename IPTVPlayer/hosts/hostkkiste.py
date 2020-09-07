@@ -230,7 +230,7 @@ class KKisteAG(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         sts, data = self.getPage(self.getMainUrl())
         if not sts: return
-        url = self.getFullUrl('?c=movie&m=filter&keyword=' + urllib.quote_plus(searchPattern))
+        url = self.getFullUrl('?c=movie&m=filter&keyword=' + urllib.parse.quote_plus(searchPattern))
         self.listItems({'name':'category', 'category':'list_items', 'url':url})
 
     def exploreItem(self, cItem):

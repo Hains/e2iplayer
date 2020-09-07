@@ -140,7 +140,7 @@ class IITVPL(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("IITVPL.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.SEARCH_URL + '/' + urllib.quote_plus(searchPattern)
+        cItem['url'] = self.SEARCH_URL + '/' + urllib.parse.quote_plus(searchPattern)
         self.listItems(cItem, 'list_episodes')
     
     def getLinksForVideo(self, cItem):

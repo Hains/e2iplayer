@@ -252,7 +252,7 @@ class Playpuls(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("Playpuls.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.SEARCH_URL + urllib.quote_plus(searchPattern)
+        cItem['url'] = self.SEARCH_URL + urllib.parse.quote_plus(searchPattern)
         self.listCategory(cItem, True)
     
     def handleService(self, index, refresh=0, searchPattern='', searchType=''):

@@ -155,7 +155,7 @@ class EgyBest(CBaseHostClass):
             
             url += '-'.join(query) + ('?page=%s&output_format=json&output_mode=movies_list' % page)
         else:
-            url += ('?page=%s&q=%s&output_format=json' % (page, urllib.quote(cItem['f_search_query'])))
+            url += ('?page=%s&q=%s&output_format=json' % (page, urllib.parse.quote(cItem['f_search_query'])))
         
         sts, data = self.getPage(url)
         if not sts: return

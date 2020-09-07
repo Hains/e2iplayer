@@ -339,7 +339,7 @@ class VevoCom(CBaseHostClass):
         
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("VevoCom.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
-        query = 'search?q=%s' % urllib.quote_plus(searchPattern)
+        query = 'search?q=%s' % urllib.parse.quote_plus(searchPattern)
         url = 'https://quest.vevo.com/%s' % query
         params = self._getApiHeaders({'url':self.getFullUrl(query)})
         

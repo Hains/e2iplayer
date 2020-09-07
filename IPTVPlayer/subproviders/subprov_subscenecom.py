@@ -148,7 +148,7 @@ class SubsceneComProvider(CBaseSubProviderClass):
     def searchByTitle(self, cItem, nextCategory):
         printDBG("SubsceneComProvider.searchByTitle")
         self.cache = {}
-        url = self.getFullUrl('/subtitles/title?q={0}&r=true'.format(urllib.quote_plus(self.params['confirmed_title'])))
+        url = self.getFullUrl('/subtitles/title?q={0}&r=true'.format(urllib.parse.quote_plus(self.params['confirmed_title'])))
         
         header = self._getHeader(cItem['lang_id'])
         sts, data = self.cm.getPage(url, {'header':header})
@@ -179,7 +179,7 @@ class SubsceneComProvider(CBaseSubProviderClass):
     
     def searchByReleaseName(self, cItem, nextCategory):
         printDBG("SubsceneComProvider.searchByReleaseName")
-        url = self.getFullUrl('/subtitles/release?q={0}&r=true'.format(urllib.quote_plus(self.params['confirmed_title'])))
+        url = self.getFullUrl('/subtitles/release?q={0}&r=true'.format(urllib.parse.quote_plus(self.params['confirmed_title'])))
         cItem = dict(cItem)
         cItem.update({'url':url})
         self.listSubItems(cItem, nextCategory)

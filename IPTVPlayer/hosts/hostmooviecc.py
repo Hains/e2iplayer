@@ -303,7 +303,7 @@ class MoovieCC(CBaseHostClass):
             printDBG("MoovieCC.exploreItem - missing link for sources")
             return
         
-        tmp = urllib.unquote(sourcesLink)
+        tmp = urllib.parse.unquote(sourcesLink)
         tmp = self.cm.ph.getSearchGroups(tmp[1:], '''(https?://.+)''')[0]
         if tmp != '': sourcesLink = tmp
         

@@ -178,7 +178,7 @@ class IKlubNetApi(CBaseHostClass):
                         else:
                             tmp2 = re.compile('''unescape\(['"]([^"^']+?)['"]''').findall(item)
                             for item2 in tmp2:
-                                ddata += urllib.unquote(item2)
+                                ddata += urllib.parse.unquote(item2)
                 
                 printDBG("++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 printDBG(ddata)

@@ -223,7 +223,7 @@ class YesMovies(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("YesMovies.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('movie/search/' + urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('movie/search/' + urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem, 'list_episodes')
     
     def getLinksForVideo(self, cItem, forEpisodes=False):

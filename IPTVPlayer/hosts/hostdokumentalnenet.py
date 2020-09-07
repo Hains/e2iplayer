@@ -139,7 +139,7 @@ class DokumentalneNET(CBaseHostClass):
         printDBG("DokumentalneNET.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
         if 1 == cItem.get('page', 1):
-            cItem['url'] = self.getFullUrl('/?s=') + urllib.quote_plus(searchPattern)
+            cItem['url'] = self.getFullUrl('/?s=') + urllib.parse.quote_plus(searchPattern)
         self.listItems(cItem)
         
     def getLinksForVideo(self, cItem):

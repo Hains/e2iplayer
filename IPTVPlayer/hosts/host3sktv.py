@@ -216,7 +216,7 @@ class C3skTv(CBaseHostClass):
         marker = 'google.search.Search.csqr2538'
         page = cItem.get('page', 0)
         if page == 0:
-            url = self.getFullUrl('/search.htm?q=%s&btnG=' % urllib.quote(searchPattern))
+            url = self.getFullUrl('/search.htm?q=%s&btnG=' % urllib.parse.quote(searchPattern))
             sts, data = self.getPage(url)
             if not sts: return
             cx = ph.search(data, '''var\s+?cx\s*?=\s*?['"]([^'^"]+?)['"]''')[0]

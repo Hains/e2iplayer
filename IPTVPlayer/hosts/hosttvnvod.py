@@ -462,7 +462,7 @@ class TvnVod(CBaseHostClass):
             self.listsMainMenu()
     #SEARCH
         elif category in ["search", "search_next_page"]:
-            pattern = urllib.quote_plus(searchPattern)
+            pattern = urllib.parse.quote_plus(searchPattern)
             cItem = dict(self.currItem)
             cItem.update({'search_item':False, 'name':'category'}) 
             self.listSearchResult(cItem, pattern, searchType)

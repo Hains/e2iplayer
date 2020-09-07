@@ -179,7 +179,7 @@ class MaxtvGO(CBaseHostClass):
         self.tryTologin()
         
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/api/videos.php?action=find&fullText=') + urllib.quote_plus(searchPattern)
+        cItem['url'] = self.getFullUrl('/api/videos.php?action=find&fullText=') + urllib.parse.quote_plus(searchPattern)
         self.listItems(cItem, 'sub_items')
     
     def tryTologin(self):

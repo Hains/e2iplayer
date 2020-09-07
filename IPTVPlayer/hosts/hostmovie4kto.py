@@ -400,7 +400,7 @@ class Movie4kTO(CBaseHostClass):
         cItem = dict(cItem)
         page = cItem.get('page', 1)
         if page == 1:
-            cItem['url'] = self.SRCH_URL + urllib.quote(searchPattern)
+            cItem['url'] = self.SRCH_URL + urllib.parse.quote(searchPattern)
             cItem['category'] = 'search'
         
         self.listsItems2(cItem, None)

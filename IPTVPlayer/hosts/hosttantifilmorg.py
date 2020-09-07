@@ -325,7 +325,7 @@ class TantiFilmOrg(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("TantiFilmOrg.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
-        baseUrl = self.getFullUrl('?s=' + urllib.quote_plus(searchPattern))
+        baseUrl = self.getFullUrl('?s=' + urllib.parse.quote_plus(searchPattern))
         cItem = dict(cItem)
         cItem['url'] = baseUrl
         self.listItems(cItem, 'list_content')

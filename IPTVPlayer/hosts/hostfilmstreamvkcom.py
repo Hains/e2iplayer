@@ -210,7 +210,7 @@ class FilmstreamvkCom(CBaseHostClass):
         printDBG("FilmstreamvkCom.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         self.selectDomain()
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/?s=') + urllib.quote(searchPattern)
+        cItem['url'] = self.getFullUrl('/?s=') + urllib.parse.quote(searchPattern)
         self.listItems(cItem, 'episodes')
         
     def _getBaseVideoLink(self, wholeData):

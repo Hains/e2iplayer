@@ -127,7 +127,7 @@ class WorldFree4u(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("WorldFree4u.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('/search/' + urllib.quote(searchPattern))
+        cItem['url'] = self.getFullUrl('/search/' + urllib.parse.quote(searchPattern))
         self.listItems(cItem)
         
     def getLinksForVideo(self, cItem, forEpisodes=False):

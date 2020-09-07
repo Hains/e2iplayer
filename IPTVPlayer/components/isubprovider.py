@@ -369,7 +369,7 @@ class CBaseSubProviderClass:
     def imdbGetMoviesByTitle(self, title):
         printDBG('CBaseSubProviderClass.imdbGetMoviesByTitle title[%s]' % (title))
         
-        sts, data = self.cm.getPage("http://www.imdb.com/find?ref_=nv_sr_fn&q=%s&s=tt" % urllib.quote_plus(title))
+        sts, data = self.cm.getPage("http://www.imdb.com/find?ref_=nv_sr_fn&q=%s&s=tt" % urllib.parse.quote_plus(title))
         if not sts: return False, []
         list = []
         data = self.cm.ph.getDataBeetwenMarkers(data, '<table class="findList">', '</table>', False)[1]

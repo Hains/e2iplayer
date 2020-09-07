@@ -85,7 +85,7 @@ class SKStream(CBaseHostClass):
     def getFullUrl(self, url):
         url = CBaseHostClass.getFullUrl(self, url)
         try: url.encode('ascii')
-        except Exception: url = urllib.quote(url, safe="/:&?%@[]()*$!+-=|<>;")
+        except Exception: url = urllib.parse.quote(url, safe="/:&?%@[]()*$!+-=|<>;")
         url = url.replace(' ', '%20')
         return url
         
@@ -241,7 +241,7 @@ class SKStream(CBaseHostClass):
         page = cItem.get('page', 1)
         
         cItem = dict(cItem)
-        cItem['url'] = self.getFullUrl('recherche?s=%s' % urllib.quote_plus(searchPattern))
+        cItem['url'] = self.getFullUrl('recherche?s=%s' % urllib.parse.quote_plus(searchPattern))
         self.listItems(cItem, 'explore_item')
     
     def getLinksForVideo(self, cItem):

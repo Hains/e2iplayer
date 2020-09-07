@@ -330,7 +330,7 @@ class OurmatchNet(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("OurmatchNet.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         cItem = dict(cItem)
-        cItem.update({'url':self.MAIN_URL, 's':urllib.quote(searchPattern)})
+        cItem.update({'url':self.MAIN_URL, 's':urllib.parse.quote(searchPattern)})
         self.listItems(cItem)
 
     def getFavouriteData(self, cItem):

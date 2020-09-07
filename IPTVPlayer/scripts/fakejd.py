@@ -231,7 +231,7 @@ class Myjdapi:
             query = [path + "?"]
             for param in params:
                 if param[0] != "encryptedLoginSecret":
-                    query += ["%s=%s" % (param[0], urllib.quote(param[1]))]
+                    query += ["%s=%s" % (param[0], urllib.parse.quote(param[1]))]
                 else:
                     query += ["&%s=%s" % (param[0], param[1])]
             query += ["rid="+str(self._request_id)]

@@ -162,7 +162,7 @@ class FilmaonCom(CBaseHostClass):
     def listSearchResult(self, cItem, searchPattern, searchType):
         printDBG("FilmaonCom.listSearchResult cItem[%s], searchPattern[%s] searchType[%s]" % (cItem, searchPattern, searchType))
         
-        url = self.getFullUrl('?s=') + urllib.quote_plus(searchPattern)
+        url = self.getFullUrl('?s=') + urllib.parse.quote_plus(searchPattern)
         cItem = dict(cItem)
         cItem.update({'url':url, 'category':'list_items'})
         self.listItems(cItem, 'explore_item')
