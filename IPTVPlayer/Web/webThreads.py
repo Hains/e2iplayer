@@ -58,12 +58,12 @@ class buildActiveHostsHTML(threading.Thread):
 			if not IsHostEnabled(hostName):
 				continue
 			# column 1 containing logo and link if available
-			try:
+			if 1:
 				_temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['gettytul'], 0)
 				title = _temp.gettytul()
 				_temp = None
-			except Exception:
-				continue # we do NOT use broken hosts!!!
+			# except Exception:
+			#	continue # we do NOT use broken hosts!!!
 		
 			logo = getHostLogo(hostName)
 	
@@ -179,11 +179,11 @@ class buildConfigsHTML(threading.Thread):
 		#configs for hosts
 		for hostName in SortHostsList(GetHostsList()):
 			# column 1 containing logo and link if available
-			try:
+			if 1:
 				_temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['gettytul'], 0)
 				title = _temp.gettytul()
-			except Exception:
-				continue # we do NOT use broken hosts!!!
+			# except Exception:
+			# 	continue # we do NOT use broken hosts!!!
 			usedCFG.append("host%s" % hostName )
 			
 			logo = getHostLogo(hostName)
@@ -202,11 +202,11 @@ class buildConfigsHTML(threading.Thread):
 				OnOffState = formSUBMITvalue( [('cmd', 'ON:host'+ hostName)],  _('Enable'))
 
 			# Column 4 host configuration options
-			try:
+			if 1:
 				_temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['GetConfigList'], 0)
 				OptionsList = _temp.GetConfigList()
-			except Exception:
-				OptionsList = []
+			# except Exception:
+			#	OptionsList = []
 	
 			#build table row
 			hostsCFG = '<tr>'
@@ -366,11 +366,11 @@ class doGlobalSearch(threading.Thread):
 			elif not IsHostEnabled(hostName):
 				continue
 			#print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ---------------- %s ---------------- !!!!!!!!!!!!!!!!!!!!!!!!!" % hostName)
-			try:
+			if 1:
 				_temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['IPTVHost'], 0)
-			except Exception:
-				print("doGlobalSearch: Exception importing %s" % hostName)
-				continue
+			# except Exception:
+			#	print("doGlobalSearch: Exception importing %s" % hostName)
+			#	continue
 			try:
 				self.host = _temp.IPTVHost()
 			except Exception as e:

@@ -599,11 +599,11 @@ class E2iPlayerWidget(Screen):
             options.append((_('Randomize a playlist'), "RandomizePlayableItems"))
             options.append((_('Reverse a playlist'), "ReversePlayableItems"))
         
-        try:
+        if 1:
             host = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + self.hostName, globals(), locals(), ['GetConfigList'], 0)
             if( len( host.GetConfigList() ) > 0 ):
                 options.append((_("Configure host"), "HostConfig"))
-        except Exception: printExc()
+        # except Exception: printExc()
         options.append((_("Info"), "info"))
         options.append((_("Download manager"), "IPTVDM"))
         self.session.openWithCallback(self.blue_pressed_next, ChoiceBox, title = _("Select option"), list = options)
@@ -1440,14 +1440,15 @@ class E2iPlayerWidget(Screen):
 
     def loadHost(self):
         self.hostFavTypes = []
-        try:
+        if 1:
             _temp = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + self.hostName, globals(), locals(), ['IPTVHost'], 0)
             self.host = _temp.IPTVHost()
             if not isinstance(self.host, IHost):
                 printDBG("Host [%r] does not inherit from IHost" % self.hostName)
                 self.close()
                 return
-        except Exception as e:
+        # except Exception as e:
+        else:
             printExc('Cannot import class IPTVHost for host [%r]' %  self.hostName)
             errorMessage = [_('Loading %s failed due to following error:') % self.hostName]
             elines = traceback.format_exc().splitlines()

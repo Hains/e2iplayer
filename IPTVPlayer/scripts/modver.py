@@ -12,7 +12,7 @@ if __name__ == "__main__":
     if len(sys.argv) < 4:
         printDBG('Please provide libsPath and module name')
         sys.exit(1)
-    try:
+    if 1:
         libsPath = sys.argv[1]
         moduleDir = sys.argv[2]
         moduleName = sys.argv[3]
@@ -23,6 +23,6 @@ if __name__ == "__main__":
         else:
             print(mod.version())
         sys.exit(0)
-    except Exception as e:
-        printDBG(e)
+    # except Exception as e:
+    #    printDBG(e)
     sys.exit(1)

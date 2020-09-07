@@ -305,7 +305,7 @@ class IPTVSubDownloaderWidget(Screen):
     #end ok_pressed(self):
     
     def loadHost(self):
-        try:
+        if 1:
             _temp = __import__('Plugins.Extensions.IPTVPlayer.subproviders.subprov_' + self.hostName, globals(), locals(), ['IPTVSubProvider'], 0)
             params = dict(self.params)
             params['confirmed_title'] = self.movieTitle
@@ -314,10 +314,10 @@ class IPTVSubDownloaderWidget(Screen):
                 printDBG("Host [%r] does not inherit from ISubProvider" % self.hostName)
                 self.close()
                 return
-        except Exception:
-            printExc( 'Cannot import class IPTVSubProvider for host [%r]' %  self.hostName)
-            self.close()
-            return
+        # except Exception:
+        #     printExc( 'Cannot import class IPTVSubProvider for host [%r]' %  self.hostName)
+        #     self.close()
+        #     return
         # request initial list from host        
         self.getInitialList()
     

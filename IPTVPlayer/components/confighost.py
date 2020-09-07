@@ -130,15 +130,15 @@ class ConfigHostsMenu(ConfigBaseWidget):
             hostName = self.listOfHostsNames[curIndex]
             if self.hostsConfigsAvailableList[curIndex] and IsHostEnabled(hostName):
                 addConf = False
-                try:
+                if 1:
                     self.host = __import__('Plugins.Extensions.IPTVPlayer.hosts.host' + hostName, globals(), locals(), ['GetConfigList'], 0)
                     if( len(self.host.GetConfigList()) < 1 ):
                         printDBG('ConfigMenu host "%s" does not have additional configs' % hostName)
                     else:
                         self.session.open(ConfigHostMenu, hostName = hostName)
                         addConf = True
-                except Exception:
-                    printExc('ConfigMenu host "%s" does not have method GetConfigList' % hostName)
+                # except Exception:
+                #     printExc('ConfigMenu host "%s" does not have method GetConfigList' % hostName)
                 if not addConf:
                     self.hostsConfigsAvailableList[curIndex] = False
                     self.onSelectionChanged()
