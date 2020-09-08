@@ -1182,9 +1182,9 @@ class common:
                     response = opener.open(req)
             else:
                 if timeout != None:
-                    response = urllib.request.urlopen(req, timeout=timeout)
+                    response = urllib.request.urlopen(req, timeout=timeout).read().decode('utf8')
                 else:
-                    response = urllib.request.urlopen(req)
+                    response = urllib.request.urlopen(req).read().decode('utf8')
 
             return response
         
