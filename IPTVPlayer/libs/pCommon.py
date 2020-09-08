@@ -44,7 +44,7 @@ def EncodeGzipped(data):
 
 class NoRedirection(urllib.request.HTTPRedirectHandler):
     def http_error_302(self, req, fp, code, msg, headers):
-        infourl = urllib.addinfourl(fp, headers, req.get_full_url())
+        infourl = urllib.response.addinfourl(fp, headers, req.get_full_url())
         infourl.status = code
         infourl.code = code
         return infourl
@@ -709,7 +709,7 @@ class common:
                     curlSession.setopt(pycurl.HTTPPOST, post_data)
                     #curlSession.setopt(pycurl.CUSTOMREQUEST, "PUT")
                 else:
-                    curlSession.setopt(pycurl.POSTFIELDS, urllib.urlencode(post_data))
+                    curlSession.setopt(pycurl.POSTFIELDS, urllib.parse.urlencode(post_data))
 
             curlSession.setopt(pycurl.HEADERFUNCTION, _headerFunction)
 
@@ -985,7 +985,7 @@ class common:
                                 url += '&'
                             else:
                                 url += '?'
-                            url += urllib.urlencode(post_data2)
+                            url += urllib.parse.urlencode(post_data2)
                             post_data2 = None
                             
                         sts, data = self.getPage(url, params2, post_data2)
@@ -1185,6 +1185,7 @@ class common:
                     response = urllib.request.urlopen(req, timeout=timeout)
                 else:
                     response = urllib.request.urlopen(req)
+
             return response
         
         if IsMainThread():
@@ -1295,7 +1296,7 @@ class common:
                 customOpeners.append( MultipartPostHandler() )
                 dataPost = post_data
             else:
-                dataPost = urllib.urlencode(post_data)
+                dataPost = urllib.parse.urlencode(post_data)
             req = urllib.request.Request(pageUrl, dataPost, headers)
         else:
             req = urllib.request.Request(pageUrl, None, headers)
