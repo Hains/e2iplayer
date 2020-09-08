@@ -95,7 +95,7 @@ class QuesttvCoUK(CBaseHostClass):
                 value = self.cm.ph.getSearchGroups(item, '''value=['"]([^'^"]+?)['"]''')[0]
                 getParams[name] = value
             
-            url = 'http://c.brightcove.com/services/viewer/htmlFederated?' + urllib.urlencode(getParams)
+            url = 'http://c.brightcove.com/services/viewer/htmlFederated?' + urllib.parse.urlencode(getParams)
             sts, data = self.getPage(url)
             if sts:
                 data = self.cm.ph.getDataBeetwenMarkers(data, '"renditions":', ']', False)[1]

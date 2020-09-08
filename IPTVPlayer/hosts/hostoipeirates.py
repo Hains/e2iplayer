@@ -168,7 +168,7 @@ class OipeiratesOnline(CBaseHostClass):
         else:
             query.update({'page':page, 'seo_start_page':page})
 
-            url = cItem['ajaxurl'] + '?action=alm_query_posts&query_type=standard&' + urllib.urlencode(query)
+            url = cItem['ajaxurl'] + '?action=alm_query_posts&query_type=standard&' + urllib.parse.urlencode(query)
             sts, data = self.getPage(url)
             if not sts: return
             printDBG(data)

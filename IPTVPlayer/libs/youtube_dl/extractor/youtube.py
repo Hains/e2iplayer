@@ -410,7 +410,7 @@ class YoutubeIE(object):
             if caption_url:
                 timestamp = args['timestamp']
                 # We get the available subtitles
-                list_params = urllib.urlencode({
+                list_params = urllib.parse.urlencode({
                     'type': 'list',
                     'tlangs': 1,
                     'asrs': 1,
@@ -431,7 +431,7 @@ class YoutubeIE(object):
                     sub_lang = lang_node.attrib['lang_code']
                     sub_formats = []
                     for ext in self._SUBTITLE_FORMATS:
-                        params = urllib.urlencode({
+                        params = urllib.parse.urlencode({
                             'lang': original_lang,
                             'tlang': sub_lang,
                             'fmt': ext,
@@ -463,7 +463,7 @@ class YoutubeIE(object):
                     'fmt': ['vtt'],
                 })
                 sub_url = urlunparse(parsed_caption_url._replace(
-                    query=urllib.urlencode(caption_qs, True)))
+                    query=urllib.parse.urlencode(caption_qs, True)))
                 sub_tracks.append({'title':lang_qs['n'][0].encode('utf-8'), 'url':sub_url, 'lang':sub_lang.encode('utf-8'), 'ytid':len(sub_tracks), 'format':'vtt'})
         except Exception:
             printExc()
@@ -493,7 +493,7 @@ class YoutubeIE(object):
 
                 title = (name + ' ' + lang_translated).strip()
                 params = {'lang':lang_code, 'v':video_id, 'fmt':'vtt', 'name':name}
-                url = 'https://www.youtube.com/api/timedtext?' + urllib.urlencode(params)
+                url = 'https://www.youtube.com/api/timedtext?' + urllib.parse.urlencode(params)
                 sub_tracks.append({'title':title, 'url':url, 'lang':lang_code, 'ytid':id, 'format':'vtt'})
         except Exception:
             printExc()

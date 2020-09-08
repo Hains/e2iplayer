@@ -179,7 +179,7 @@ class KKisteAG(CBaseHostClass):
                 val = cItem.get('f_' + key)
                 if not val: continue
                 query[key] = val
-            url = self.getFullUrl('?c=movie&m=filter&' + urllib.urlencode(query))
+            url = self.getFullUrl('?c=movie&m=filter&' + urllib.parse.urlencode(query))
         else:
             url = cItem['url']
 

@@ -241,7 +241,7 @@ class PlusDEDE(CBaseHostClass):
                 for key in self.cacheFiltersKeys:
                     if key in cItem: query[key[2:]] = cItem[key]
                 
-                query = urllib.urlencode(query)
+                query = urllib.parse.urlencode(query)
                 if '?' in url: url += '&' + query
                 else: url += '?' + query
             else:

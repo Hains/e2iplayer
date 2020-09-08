@@ -6,7 +6,7 @@ import urllib
 import sys
 
 def ReportCrash(url, except_msg):
-    request = urllib2.Request(url, data=urllib.urlencode({'except':except_msg}))
+    request = urllib.request.Request(url, data=urllib.parse.urlencode({'except':except_msg}))
     data = urllib.request.urlopen(request).read()
     print(data)
 

@@ -309,7 +309,7 @@ class AkoAm(CBaseHostClass):
                 if 'golink' in data:
                     data = data['golink']
                     printDBG(data)
-                    data = urllib.unquote(data)
+                    data = urllib.parse.unquote(data)
                     data = byteify(json.loads(data))
                     printDBG(data)
                     baseUrl = data['route']

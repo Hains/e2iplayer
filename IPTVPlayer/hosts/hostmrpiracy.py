@@ -229,7 +229,7 @@ class MRPiracyGQ(CBaseHostClass, CaptchaHelper):
         if 'sort_by' in cItem and 'order' in cItem:
             uriParams[cItem['sort_by']] = cItem['order']
         
-        uriParams = urllib.urlencode(uriParams)
+        uriParams = urllib.parse.urlencode(uriParams)
         if '?' in url: url += '&' + uriParams
         else: url += '?' + uriParams
         

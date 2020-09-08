@@ -264,7 +264,7 @@ class HasBahCa(CBaseHostClass):
     def listHasBahCa(self, item):
         url = item.get('url', '')
         if 'proxy-german.de' in url:
-            url = urllib.unquote(url.split('?q=')[-1])
+            url = urllib.parse.unquote(url.split('?q=')[-1])
         
         printDBG("listHasBahCa url[%s]" % url)
         BASE_URL = 'http://hasbahcaiptv.com/'
@@ -391,7 +391,7 @@ class HasBahCa(CBaseHostClass):
         listURL = strwithmeta(listURL)
         meta = listURL.meta
         if 'proxy-german.de' in listURL:
-            listURL = urllib.unquote(listURL.split('?q=')[-1])
+            listURL = urllib.parse.unquote(listURL.split('?q=')[-1])
         
         listURL = strwithmeta(listURL, meta)
         if 'cookiefile' in listURL.meta:
@@ -959,7 +959,7 @@ class HasBahCa(CBaseHostClass):
         _url = self.cm.ph.getSearchGroups(data, '''source:\swindow.atob\(['"]([^"^']+?)['"]''')[0]
         if _url != '':
             import base64
-            return [{'name':'others', 'url':urllib.unquote(base64.b64decode(_url))}]
+            return [{'name':'others', 'url':urllib.parse.unquote(base64.b64decode(_url))}]
         else:
             _url = self.cm.ph.getSearchGroups(data, '''source:\s['"]([^"^']+?)['"]''')[0]
             return [{'name':'others', 'url':_url}]

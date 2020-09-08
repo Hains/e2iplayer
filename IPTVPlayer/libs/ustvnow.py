@@ -80,7 +80,7 @@ class UstvnowApi:
         
     def _getChannelsNames(self):
         printDBG("UstvnowApi._getChannelsNames")
-        url = 'http://m.ustvnow.com/gtv/1/live/listchannels?%s' % urllib.urlencode({'token': self.token})
+        url = 'http://m.ustvnow.com/gtv/1/live/listchannels?%s' % urllib.parse.urlencode({'token': self.token})
         sts, data = self.cm.getPage(url)
         if not sts: return []
         
@@ -194,7 +194,7 @@ class UstvnowApi:
         
     def getPasskey(self):
 
-        url = 'http://m.ustvnow.com/gtv/1/live/viewdvrlist?%s' % urllib.urlencode({'token': self.token})
+        url = 'http://m.ustvnow.com/gtv/1/live/viewdvrlist?%s' % urllib.parse.urlencode({'token': self.token})
         sts, data = self.cm.getPage(url)
         if not sts: return ''
         

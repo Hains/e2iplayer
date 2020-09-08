@@ -217,7 +217,7 @@ class YouTubeParser():
         urlParts = urlparse(url)
         query = dict(parse_qsl(urlParts[4]))
         query.update(queryDict)
-        new_query = urllib.urlencode(query)
+        new_query = urllib.parse.urlencode(query)
         new_url = urlunparse((urlParts[0],urlParts[1],urlParts[2],urlParts[3], new_query, urlParts[5]))
         return new_url
 

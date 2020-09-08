@@ -445,9 +445,9 @@ class YifyTV(CBaseHostClass):
                             
                             g3 = self.cm.ph.getSearchGroups(data+'&', '''[&\?]g3=([^&]+?)&''')[0]
                             emb = self.cm.ph.getSearchGroups(data+'&', '''[&\?]emb=([^&^\*]+?)[&\*]''')[0]
-                            if emb != '': data = urllib.unquote(emb)
+                            if emb != '': data = urllib.parse.unquote(emb)
                             if g3 != '':
-                                post_data = {'fv':'0', 'g3':urllib.unquote(g3)}
+                                post_data = {'fv':'0', 'g3':urllib.parse.unquote(g3)}
                                 url = 'https://ymovies.tv/playerlite/pk/pk/plugins/player_g3.php'
                                 sts, data = self.getPage(url, {'header':header}, post_data)
                                 if not sts: return []
@@ -457,10 +457,10 @@ class YifyTV(CBaseHostClass):
                                 break                            
                             else:
                                 if 'showiFrame(' in data:
-                                    url = urllib.unquote(self.cm.ph.getDataBeetwenMarkers(data, "emb='+'", "'", False)[1])
+                                    url = urllib.parse.unquote(self.cm.ph.getDataBeetwenMarkers(data, "emb='+'", "'", False)[1])
                                     tmp = url.split('sub.file')
                                     url = tmp[0]
-                                    subTrack = urllib.unquote(tmp[1])
+                                    subTrack = urllib.parse.unquote(tmp[1])
                                     if url.startswith('//'):
                                         url = 'http:' + url
                                     if subTrack.startswith('//'):

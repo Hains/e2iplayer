@@ -360,7 +360,7 @@ class IceFilms(CBaseHostClass):
             if 1 == self.up.checkHostSupport(videoUrl):
                 urlTab.extend(self.up.getVideoLinkExt(videoUrl))
         
-        videoUrl = urllib.unquote(data.split('?url=')[-1].strip())
+        videoUrl = urllib.parse.unquote(data.split('?url=')[-1].strip())
         if self.cm.isValidUrl(videoUrl):
             return self.up.getVideoLinkExt(videoUrl)
         return urlTab

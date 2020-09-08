@@ -185,7 +185,7 @@ class GuardaSerieClick(CBaseHostClass):
                 if sts:
                     printDBG(data)
                     url = self.getFullUrl(self.cm.ph.getSearchGroups(data, '''<iframe[^>]+?src=['"]([^"^']+?)['"]''', 1, True)[0])
-                    url = urllib.unquote(self.cm.ph.getDataBeetwenMarkers(url, '?u=', '&', False)[1])
+                    url = urllib.parse.unquote(self.cm.ph.getDataBeetwenMarkers(url, '?u=', '&', False)[1])
             
             if url != '':
                 videoUrl = url

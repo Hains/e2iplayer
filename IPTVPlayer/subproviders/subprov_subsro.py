@@ -72,7 +72,7 @@ class SubsRoProvider(CBaseSubProviderClass):
         actionUrl, query = self.getFormQuery(data, '', self.params['confirmed_title'])
         if '?' in actionUrl: actionUrl += '&'
         else: actionUrl += '?'
-        actionUrl += urllib.urlencode(query)
+        actionUrl += urllib.parse.urlencode(query)
         
         sts, data = self.cm.getPage(actionUrl, urlParams)
         if not sts: return

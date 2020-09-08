@@ -153,7 +153,7 @@ class WebCameraApi(CBaseHostClass):
                     #urlPrams['columns'] = '12'
                     
                     url = self.getFullUrl(cItem['more_url'])
-                    url += '?' + urllib.urlencode(urlPrams)
+                    url += '?' + urllib.parse.urlencode(urlPrams)
                     getPageParams['header']['X-Requested-With'] = 'XMLHttpRequest'
                     sts, data = self.getPage(url, getPageParams)
 

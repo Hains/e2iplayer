@@ -215,7 +215,7 @@ class WatchwrestlingUNO(CBaseHostClass):
                 data = self._clearData(data)
                 #printDBG(data)
                 if 'eval(unescape' in data:
-                    data = urllib.unquote(self.cm.ph.getSearchGroups(data, '''eval\(unescape\(['"]([^"^']+?)['"]''')[0])
+                    data = urllib.parse.unquote(self.cm.ph.getSearchGroups(data, '''eval\(unescape\(['"]([^"^']+?)['"]''')[0])
                 url = self.cm.ph.getSearchGroups(data, '''<iframe[^>]*?src=['"]([^"^']+?)['"]''', 1, True)[0]
                 if '/cgi-bin/' in url:
                     referer = cItem['url']

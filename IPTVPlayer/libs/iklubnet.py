@@ -192,8 +192,8 @@ class IKlubNetApi(CBaseHostClass):
                 ddata =  self.cm.ph.getSearchGroups(ddata, '''document\.write[^'^"]+?['"]([^'^"]+?)['"]''')[0]
                 data  = ''
                 tmp   = ddata.split(sp)
-                ddata = urllib.unquote(tmp[0])
-                k = urllib.unquote(tmp[1] + modStr)
+                ddata = urllib.parse.unquote(tmp[0])
+                k = urllib.parse.unquote(tmp[1] + modStr)
                 for idx in range(len(ddata)):
                     data += chr((int(k[idx % len(k)]) ^ ord(ddata[idx])) + modInt)
                     

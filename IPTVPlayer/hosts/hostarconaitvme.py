@@ -91,7 +91,7 @@ class ArconaitvME(CBaseHostClass):
         
     def getFullUrl(self, url):
         if self.up.getDomain(self.proxyUrl) in url:
-            url = urllib.unquote( self.cm.ph.getSearchGroups(url+'&', '''\?u=(http[^&]+?)&''')[0] )
+            url = urllib.parse.unquote( self.cm.ph.getSearchGroups(url+'&', '''\?u=(http[^&]+?)&''')[0] )
         return CBaseHostClass.getFullUrl(self, url)
     
     def listItems(self, cItem, m1, m2, post_data=None):

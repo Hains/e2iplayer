@@ -151,7 +151,7 @@ class FilmezzEU(CBaseHostClass):
             baseKey = key[2:] # "f_"
             if key in cItem: query[baseKey] = urllib.parse.quote(cItem[key])
         
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         if '?' in url: url += '&' + query
         else: url += '?' + query
         
@@ -239,7 +239,7 @@ class FilmezzEU(CBaseHostClass):
             if url == '': continue
 
             if url.startswith('http://adf.ly/'):
-                url = urllib.unquote(url.rpartition('/')[2])
+                url = urllib.parse.unquote(url.rpartition('/')[2])
                 if url == '': continue
 
             if title not in titlesTab:

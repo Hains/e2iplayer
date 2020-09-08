@@ -128,7 +128,7 @@ class ShahiidAnime(CBaseHostClass):
         for key in keys:
             baseKey = key[2:] # "f_"
             if key in cItem: query[baseKey] = cItem[key]
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         if query != '': url += '?' + query
         
         sts, data = self.getPage(url)
@@ -271,7 +271,7 @@ class ShahiidAnime(CBaseHostClass):
                         break
         data = videoUrl.split('|')
         query = {'action':'play_video', 'code':data[2], 'type':data[1], '_':str(int(time.time()*1000))}
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         url = self.getFullUrl('?' + query)
         
         sts, data = self.getPage(url)

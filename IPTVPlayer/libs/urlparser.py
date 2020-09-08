@@ -4882,7 +4882,7 @@ class pageParser(CaptchaHelper):
         if not sts:
             return False
         cUrl = self.cm.meta['url']
-        videoUrl += '?' + urllib.urlencode(player)
+        videoUrl += '?' + urllib.parse.urlencode(player)
         pyCmd = GetPyScriptCmd('hydrax') + ' "%s" "%s" "%s" "%s" "%s" "%s" "%s" "%s" ' % (0, videoUrl, 'quality', '0xb1d43309ca93c802b7ed16csf7e8d4f1b', baseUrl, GetJSScriptFile('hydrax.byte'), HTTP_HEADER['User-Agent'], GetDukPath())
         urlsTab = []
         map = [('sd', '480x360'), ('mhd', '640x480'), ('hd', '1280x720'), ('fullhd', '1920x1080')]
@@ -5466,7 +5466,7 @@ class pageParser(CaptchaHelper):
                 mediaId = channelID
                 apiUrl = WS_URL.format(randint(0, 0xffffff), mediaId, 'channel', 'lp-live') + '/1/ustream'
                 #('password', '')
-                url = apiUrl + '?' + urllib.urlencode([('media', mediaId), ('referrer', referer), ('appVersion', 2), ('application', 'channel'), ('rsid', rsid), ('appId', 11), ('rpin', rpin), ('type', 'viewer') ])
+                url = apiUrl + '?' + urllib.parse.urlencode([('media', mediaId), ('referrer', referer), ('appVersion', 2), ('application', 'channel'), ('rsid', rsid), ('appId', 11), ('rpin', rpin), ('type', 'viewer') ])
                 sts, data = self.cm.getPage(url, params)
                 if not sts: return []
                 data = json_loads(data)
@@ -7077,7 +7077,7 @@ class pageParser(CaptchaHelper):
                 values[item[0]] = item[1]
             else: values[item[0]] += item[1]
         if urllib.parse.unquote(values[names[1]]).startswith('rtmp'): names = names[::-1]
-        r = urllib.parse.unquote(values[names[0]]) + '/' + urllib.unquote(values[names[1]])
+        r = urllib.parse.unquote(values[names[0]]) + '/' + urllib.parse.unquote(values[names[1]])
         printDBG("...............................[%s]" % r)
         if r.startswith('rtmp'):
             swfUrl  = "http://7cast.net/jplayer.swf"
@@ -7459,7 +7459,7 @@ class pageParser(CaptchaHelper):
         except Exception:
             printExc('unpackJS compile algo code EXCEPTION')
             return ''
-        vGlobals = {"__builtins__": None, 'string': string, 'str':str, 'chr':chr, 'decodeURIComponent':urllib.unquote, 'unescape':urllib.unquote, 'min':min, 'saveGet':self.saveGet, 'justRet':self.justRet}
+        vGlobals = {"__builtins__": None, 'string': string, 'str':str, 'chr':chr, 'decodeURIComponent':urllib.parse.unquote, 'unescape':urllib.parse.unquote, 'min':min, 'saveGet':self.saveGet, 'justRet':self.justRet}
         vLocals = { name: None }
 
         try:
@@ -9603,7 +9603,7 @@ class pageParser(CaptchaHelper):
             if error_url:
                 form.update({'numOfErrors': try_num, 'errorCode': '404', 'errorUrl': error_url})
 
-            data_url = _API_URL % (video_host, urllib.urlencode(form))
+            data_url = _API_URL % (video_host, urllib.parse.urlencode(form))
             sts, player_data = self.cm.getPage(data_url)
             if not sts: return sts
 
@@ -9870,7 +9870,7 @@ class pageParser(CaptchaHelper):
                         name  = ph.getattr(item, 'name')
                         value  = ph.getattr(item, 'value')
                         if name != '': query[name] = value
-                    action += '?' + urllib.urlencode(query)
+                    action += '?' + urllib.parse.urlencode(query)
                     sts, data = self.cm.getPage(action, params)
                     if sts: cUrl = self.cm.meta['url']
 

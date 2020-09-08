@@ -90,7 +90,7 @@ class FilmovizijaStudio(CBaseHostClass):
         
     def _getFullUrl(self, url):
         if 'sslgate.co.uk' in url:
-            url = urllib.unquote( self.cm.ph.getSearchGroups(url+'&', '''\?q=(http[^&]+?)&''')[0] )
+            url = urllib.parse.unquote( self.cm.ph.getSearchGroups(url+'&', '''\?q=(http[^&]+?)&''')[0] )
         if url.startswith('//'):
             url = 'http:' + url
         elif url.startswith('/'):

@@ -417,7 +417,7 @@ class CartoonHD(CBaseHostClass):
         httpParams['header'] =  {'Referer':cItem['url'], 'User-Agent':self.cm.HOST, 'X-Requested-With':'XMLHttpRequest', 'Accept':'application/json, text/javascript, */*; q=0.01', 'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
         encElid = gettt()
         __utmx = getCookieItem('__utmx')
-        httpParams['header']['Authorization'] = 'Bearer ' + urllib.unquote(__utmx)
+        httpParams['header']['Authorization'] = 'Bearer ' + urllib.parse.unquote(__utmx)
         
         requestLinks = [urljoin(baseurl, jsUrl)]
         if 'class="play"' in data and 'id="updateSources"' not in data:

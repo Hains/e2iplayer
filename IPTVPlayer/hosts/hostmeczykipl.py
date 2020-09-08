@@ -69,7 +69,7 @@ class MeczykiPL(CBaseHostClass):
         cat  = cItem.get('f_cat', '0')
         
         query = {'category':cat, 'page':page}
-        url = baseUrl + '?' + urllib.urlencode(query)
+        url = baseUrl + '?' + urllib.parse.urlencode(query)
         
         sts, data = self.getPage(url)
         if not sts: return
@@ -95,7 +95,7 @@ class MeczykiPL(CBaseHostClass):
         if 0 == len(self.currList): return
         
         query['page'] = page + 1
-        url = baseUrl + '?' + urllib.urlencode(query)
+        url = baseUrl + '?' + urllib.parse.urlencode(query)
         sts, data = self.getPage(url)
         if not sts: return
         

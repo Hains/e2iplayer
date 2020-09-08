@@ -189,7 +189,7 @@ class HDFilmeTV(CBaseHostClass):
         else:
             query={'page': page, 'category':cItem['genre'],'country': cItem['country'], 'sort': cItem['sort'], 'sort_type': cItem['sort_type']}
         
-        url += "?" + urllib.urlencode(query)
+        url += "?" + urllib.parse.urlencode(query)
         sts, data = self.getPageCF(url, params, post_data = {'load':'full-page'})
         #printDBG(data)
         if not sts: return

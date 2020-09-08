@@ -232,7 +232,7 @@ class FaselhdCOM(CBaseHostClass):
             if url == '': 
                 url = self.cm.ph.getSearchGroups(item, '''href\s*?=\s*?['"]([^'^"]+?)['"]''')[0]
                 tmp = url.split('embed.php?url=', 1)
-                if 2 == len(tmp): url = urllib.unquote(tmp[-1])
+                if 2 == len(tmp): url = urllib.parse.unquote(tmp[-1])
             retTab.append({'name':name, 'url':self.getFullUrl(url), 'need_resolve':1})
             
         if self.cm.isValidUrl(dwnLink):

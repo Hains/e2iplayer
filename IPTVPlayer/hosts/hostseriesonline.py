@@ -283,7 +283,7 @@ class SeriesOnlineIO(CBaseHostClass):
                 searchUrl = self.getFullUrl(decoded.get('url', cUrl))
                 if '?' not in searchUrl: searchUrl += '?'
                 if 'data' in decoded:
-                    searchUrl += urllib.urlencode(decoded['data'])
+                    searchUrl += urllib.parse.urlencode(decoded['data'])
                 printDBG('searchUrl [%s]\n' % searchUrl)
                 cItem = dict(cItem)
                 cItem['url'] = searchUrl

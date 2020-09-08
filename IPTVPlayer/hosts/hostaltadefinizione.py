@@ -229,7 +229,7 @@ class Altadefinizione(CBaseHostClass):
             
             if '?' in actionUrl: actionUrl += '&'
             else: actionUrl += '?'
-            actionUrl += urllib.urlencode(query)
+            actionUrl += urllib.parse.urlencode(query)
             urlTab.append({'name':title, 'url':strwithmeta(actionUrl, {'Referer':cUrl}), 'need_resolve':1})
         
         if len(urlTab):

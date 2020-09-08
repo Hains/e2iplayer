@@ -211,7 +211,7 @@ class PutlockerTvTo(CBaseHostClass):
             url = cItem['url']
         
         if page > 1: query['page'] = page
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         if '?' in url: url += '&' + query
         else: url += '?' + query
         
@@ -267,7 +267,7 @@ class PutlockerTvTo(CBaseHostClass):
         id = self.cm.ph.getSearchGroups(id, '''data-id=['"]([^'^"]+?)['"]''')[0]
         getParams = {'ts':timestamp}
         getParams = self._updateParams(getParams)
-        url = self.getFullUrl('/ajax/film/servers/{0}?'.format(id) + urllib.urlencode(getParams))
+        url = self.getFullUrl('/ajax/film/servers/{0}?'.format(id) + urllib.parse.urlencode(getParams))
         
         sts, data = self.getPage(url, params)
         if not sts: return []
@@ -386,7 +386,7 @@ class PutlockerTvTo(CBaseHostClass):
 
         getParams = {'ts':timestamp, 'id':videoUrl.meta.get('id', ''), 'Q':'1'}
         getParams = self._updateParams(getParams)
-        url = self.getFullUrl('/ajax/film/update-views?' + urllib.urlencode(getParams))
+        url = self.getFullUrl('/ajax/film/update-views?' + urllib.parse.urlencode(getParams))
         sts, data = self.getPage(url, params)
         if not sts: return []
         
@@ -395,7 +395,7 @@ class PutlockerTvTo(CBaseHostClass):
         getParams = {'ts':timestamp, 'id':videoUrl.meta.get('id', ''), 'server':videoUrl.meta.get('server_id', ''), 'update':'0'}
         getParams = self._updateParams(getParams)
         
-        url = self.getFullUrl('/ajax/episode/info?' + urllib.urlencode(getParams))
+        url = self.getFullUrl('/ajax/episode/info?' + urllib.parse.urlencode(getParams))
         sts, data = self.getPage(url, params)
         if not sts: return []
         
@@ -417,7 +417,7 @@ class PutlockerTvTo(CBaseHostClass):
                 url = data['grabber']
                 if '?' in url: url += '&'
                 else: url += '?'
-                url += urllib.urlencode(query)
+                url += urllib.parse.urlencode(query)
                 sts, data = self.getPage(url, params)
                 if not sts: return []
                 data = byteify(json.loads(data))
@@ -466,7 +466,7 @@ class PutlockerTvTo(CBaseHostClass):
 
         getParams = {'ts':timestamp}
         getParams = self._updateParams(getParams)
-        url = self.getFullUrl('/ajax/film/tooltip/' + id + '?' + urllib.urlencode(getParams))
+        url = self.getFullUrl('/ajax/film/tooltip/' + id + '?' + urllib.parse.urlencode(getParams))
         sts, data = self.getPage(url, params)
         if not sts: return []
         

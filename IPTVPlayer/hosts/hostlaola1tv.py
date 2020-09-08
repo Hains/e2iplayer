@@ -306,7 +306,7 @@ class Laola1TV(CBaseHostClass):
         vidUrl = self.cm.ph.getSearchGroups(data, '\configUrl\s*:\s*"([^"]*?)"')[0]
         if vidUrl.startswith('//'):
             vidUrl = 'http:' + vidUrl
-        vidUrl += '?' + urllib.urlencode(getParams)
+        vidUrl += '?' + urllib.parse.urlencode(getParams)
         vidUrl = self._getFullUrl( vidUrl, baseUrl )
         
         sts, data = self.getPage(vidUrl)

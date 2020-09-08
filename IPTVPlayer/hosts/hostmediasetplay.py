@@ -221,7 +221,7 @@ class MediasetPlay(CBaseHostClass):
 
         query = {'hitsPerPage':50}
         if 'f_onair' in cItem: query['inOnda'] = 'true'
-        url = self.API_BASE_URL + 'rec/azlisting/v1.0?' + urllib.urlencode(query)
+        url = self.API_BASE_URL + 'rec/azlisting/v1.0?' + urllib.parse.urlencode(query)
         if 'f_query' in cItem: url += '&query=%s' % cItem['f_query'] #query['query'] = cItem['f_query']
         if 'f_category' in cItem: url += '&categories=%s' % cItem['f_category'] #query['categories'] = cItem['f_category']
 
@@ -345,7 +345,7 @@ class MediasetPlay(CBaseHostClass):
         printDBG("MediasetPlay.listCatalogItems")
         query = {'uxReference':cItem['f_ref'], 'platform':'pc'}
         query.update(self.initData)
-        url = self.API_BASE_URL + 'rec/cataloguelisting/v1.0?' + urllib.urlencode(query)
+        url = self.API_BASE_URL + 'rec/cataloguelisting/v1.0?' + urllib.parse.urlencode(query)
 
         sts, data = self.getPage(url)
         if not sts: return
@@ -407,7 +407,7 @@ class MediasetPlay(CBaseHostClass):
         query = {'uxReference':'CWSEARCH%s' % searchType.upper(), 'query':searchPattern, 'platform':'pc'}
         query.update(self.initData)
 
-        url = self.API_BASE_URL + 'rec/search/v1.0?' + urllib.urlencode(query)
+        url = self.API_BASE_URL + 'rec/search/v1.0?' + urllib.parse.urlencode(query)
         if 'clip' == searchType: url += '&sort=Viewers=DESC'
 
         cItem = MergeDicts(cItem, {'category':'list_items', 'url':url})

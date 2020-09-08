@@ -59,8 +59,8 @@ class YouSeeApi(object):
         try:
             r = urllib.request.Request(url, headers={'X-API-KEY': API_KEY})
             if method == METHOD_POST and params:
-                print("POST data: %s" % urllib.urlencode(params))
-                r.add_data(urllib.urlencode(params))
+                print("POST data: %s" % urllib.parse.urlencode(params))
+                r.add_data(urllib.parse.urlencode(params))
             u = urllib.request.urlopen(r)
             data = u.read()
             u.close()

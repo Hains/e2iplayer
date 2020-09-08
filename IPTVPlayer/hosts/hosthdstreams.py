@@ -179,7 +179,7 @@ class HDStreams(CBaseHostClass):
             if item[0] in cItem:
                 query[item[1]] = cItem[item[0]]
         
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         if '?' in url: url += '&' + query
         else: url += '?' + query
         
@@ -334,7 +334,7 @@ class HDStreams(CBaseHostClass):
         urlParams['header']['x-requested-with'] = 'XMLHttpRequest'
         
         url = self.getFullUrl('/search')
-        query = urllib.urlencode({'q':searchPattern, 'movies':movies, 'seasons':series, 'didyoumean':'true', 'actors':'false'})
+        query = urllib.parse.urlencode({'q':searchPattern, 'movies':movies, 'seasons':series, 'didyoumean':'true', 'actors':'false'})
         sts, data = self.getPage(url+'?'+query, urlParams)
         if not sts: return
         

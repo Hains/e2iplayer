@@ -376,7 +376,7 @@ class ArteTV(CBaseHostClass):
                 data = self.cm.ph.getDataBeetwenNodes(data, ('var', '=', 'js_json'), ('</script', '>'), False)[1]
                 data[:data.find('};')+1]
             else:
-                sts, data = self.getPage(urllib.unquote(jsonUrl))
+                sts, data = self.getPage(urllib.parse.unquote(jsonUrl))
                 if not sts: 
                     return
 

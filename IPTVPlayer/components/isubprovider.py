@@ -470,7 +470,7 @@ class CBaseSubProviderClass:
                     printDBG("downloadFileData: replace fileName[%s] with [%s]" % (fileName, tmpFileName))
                     fileName = tmpFileName
             else:
-                fileName = urllib.unquote(self.cm.meta['url'].split('/')[-1])
+                fileName = urllib.parse.unquote(self.cm.meta['url'].split('/')[-1])
             
             return data, fileName
 

@@ -275,7 +275,7 @@ class TED(CBaseHostClass):
             if key not in queryParamsMap: continue
             query[queryParamsMap[key]] = cItem[key]
         
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         if '?' in url: url += '&' + query
         else: url += '?' + query
         
@@ -335,7 +335,7 @@ class TED(CBaseHostClass):
             if key not in queryParamsMap: continue
             query[queryParamsMap[key]] = cItem[key]
         
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         if '?' in url: url += '&' + query
         else: url += '?' + query
         

@@ -132,7 +132,7 @@ class FightVideo(CBaseHostClass):
             baseKey = key[2:] # "f_"
             if key in cItem: query[baseKey] = urllib.parse.quote(cItem[key])
         
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         if '?' in url: url += '&' + query
         else: url += '?' + query
         

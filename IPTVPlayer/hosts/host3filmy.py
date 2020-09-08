@@ -269,7 +269,7 @@ class _3Filmy(CBaseHostClass):
                     sts, data = self.getPage('https://3filmy.com/ajax/video.details', params, post_data)
                     if not sts: return []
                     data = json_loads(data)
-                    link = urllib.unquote(data['link'])
+                    link = urllib.parse.unquote(data['link'])
                     url = _link(link)
                     retTab.append({'name':str(qitem) + ' - ' +  oitem[1], 'url':strwithmeta(url, {'Referer':url}), 'need_resolve':0})
         except Exception:

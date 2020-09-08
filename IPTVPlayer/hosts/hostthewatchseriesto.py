@@ -103,7 +103,7 @@ class TheWatchseriesTo(CBaseHostClass):
         
     def getFullUrl(self, url):
         if self.isNeedProxy() and ('securefor.com' in url or '/browse.php' in url):
-            url2 = urllib.unquote( self.cm.ph.getSearchGroups(url+'&', '''\?u=(http[^&]+?)&''')[0] ).replace('&amp;', '&')
+            url2 = urllib.parse.unquote( self.cm.ph.getSearchGroups(url+'&', '''\?u=(http[^&]+?)&''')[0] ).replace('&amp;', '&')
             printDBG("[%s] --> [%s]" % (url, url2))
             url = url2
         return CBaseHostClass.getFullUrl(self, url)
@@ -259,7 +259,7 @@ class TheWatchseriesTo(CBaseHostClass):
             tmp = ph.findall(item, '<a', '</a>')
             for it in tmp:
                 if self.isNeedProxy():
-                    url = urllib.unquote(ph.search(it, '''href=['"][^'^"]*?%3Fr%3D([^'^"^&]+?)['"&]''')[0])
+                    url = urllib.parse.unquote(ph.search(it, '''href=['"][^'^"]*?%3Fr%3D([^'^"^&]+?)['"&]''')[0])
                 else:
                     url = ph.search(it, '''href=['"][^'^"]*?\?r=([^'^"]+?)['"]''')[0]
                 if url == '': continue

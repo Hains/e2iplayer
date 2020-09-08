@@ -209,7 +209,7 @@ class OpenSubtitles(CBaseSubProviderClass):
                 searchURL = self.searchURL
             else:
                 searchURL = '/search2'
-            url = self.getFullUrl(searchURL) + '?' + urllib.urlencode(query)
+            url = self.getFullUrl(searchURL) + '?' + urllib.parse.urlencode(query)
         else:
             url = cItem['url']
         

@@ -257,7 +257,7 @@ class MoonwalkParser():
                 item = item.strip()
                 if item[0] in ['"', "'"]: item = item[1:-1]
                 query['season'] = item
-                seasonsTab.append({'title':_('Season') + ' ' + item, 'id':int(item), 'url': '%s?%s' % (baseUrl, urllib.urlencode(query))})
+                seasonsTab.append({'title':_('Season') + ' ' + item, 'id':int(item), 'url': '%s?%s' % (baseUrl, urllib.parse.urlencode(query))})
             seasonsTab.sort(key=lambda item: item['id'])
         except Exception:
             printExc()
@@ -289,7 +289,7 @@ class MoonwalkParser():
                 for item in episodeData:
                     item = item.strip()
                     query['episode'] = item
-                    url = '%s?%s' % (baseUrl, urllib.urlencode(query))
+                    url = '%s?%s' % (baseUrl, urllib.parse.urlencode(query))
                     
                     episodesTab.append({'title':_('Episode') + ' ' + item, 'id':int(item), 'url': strwithmeta(url, {'host_name':'moonwalk.cc'})})
                     
@@ -300,7 +300,7 @@ class MoonwalkParser():
                     item = item.strip()
                     if item[0] in ['"', "'"]: item = item[1:-1]
                     query['episode'] = item
-                    url = '%s?%s' % (baseUrl, urllib.urlencode(query))
+                    url = '%s?%s' % (baseUrl, urllib.parse.urlencode(query))
                     episodesTab.append({'title':_('Episode') + ' ' + item, 'id':int(item), 'url': strwithmeta(url, {'host_name':'moonwalk.cc'})})
             episodesTab.sort(key=lambda item: item['id'])
         except Exception:

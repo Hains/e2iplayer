@@ -248,7 +248,7 @@ class NGolosCOM(CBaseHostClass):
                 self.addVideo(params)
             
         return
-        data = re.sub('''unescape\(["']([^"^']+?)['"]\)''', lambda m: urllib.unquote(m.group(1)), data)
+        data = re.sub('''unescape\(["']([^"^']+?)['"]\)''', lambda m: urllib.parse.unquote(m.group(1)), data)
         
         titles = []
         titles2 = []

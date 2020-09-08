@@ -142,7 +142,7 @@ class AnimeTo(CBaseHostClass, CaptchaHelper):
             baseKey = key[2:] # "f_"
             if key in cItem: query[baseKey] = cItem[key]
         
-        query = urllib.urlencode(query)
+        query = urllib.parse.urlencode(query)
         if '?' in url: url += '&' + query
         else: url += '?' + query
         
@@ -211,7 +211,7 @@ class AnimeTo(CBaseHostClass, CaptchaHelper):
                 getParams['gresponse'] = token
         
         url = self.getFullUrl('/ajax/film/servers/{0}'.format(id))
-        url = self._getUrl(jsCode, url, urllib.urlencode(getParams), timestamp)
+        url = self._getUrl(jsCode, url, urllib.parse.urlencode(getParams), timestamp)
         
         sts, data = self.getPage(url, params)
         if not sts: return []
@@ -401,13 +401,13 @@ class AnimeTo(CBaseHostClass, CaptchaHelper):
         if False:
             getParams = {'id':videoUrl.meta.get('id', ''), 'Q':'1'}
             url = self.getFullUrl('/ajax/film/update-views')
-            url = self._getUrl(jsCode, url, urllib.urlencode(getParams), timestamp)
+            url = self._getUrl(jsCode, url, urllib.parse.urlencode(getParams), timestamp)
             sts, data = self.getPage(url, params)
             if not sts: return []
         
         getParams = {'id':videoUrl.meta.get('id', ''), 'random':'0'}
         url = self.getFullUrl('/ajax/episode/info')
-        url = self._getUrl(jsCode, url, urllib.urlencode(getParams), timestamp)
+        url = self._getUrl(jsCode, url, urllib.parse.urlencode(getParams), timestamp)
         sts, data = self.getPage(url, params)
         if not sts: return []
         
@@ -429,7 +429,7 @@ class AnimeTo(CBaseHostClass, CaptchaHelper):
                 printDBG(data)
                 printDBG("---")
                 if domain in data['grabber']:
-                    url = self._getUrl(jsCode, data['grabber'], urllib.urlencode(dict(data['params'])), timestamp) + '&mobile=0'
+                    url = self._getUrl(jsCode, data['grabber'], urllib.parse.urlencode(dict(data['params'])), timestamp) + '&mobile=0'
                 sts, data = self.getPage(url, params)
                 if not sts: return []
                 data = json_loads(data)
@@ -478,7 +478,7 @@ class AnimeTo(CBaseHostClass, CaptchaHelper):
 
         getParams = {'ts':timestamp}
         #getParams = self._updateParams(getParams)
-        url = self.getFullUrl('/ajax/film/tooltip/' + id + '?' + urllib.urlencode(getParams))
+        url = self.getFullUrl('/ajax/film/tooltip/' + id + '?' + urllib.parse.urlencode(getParams))
         sts, data = self.getPage(url, params)
         if not sts: return []
         

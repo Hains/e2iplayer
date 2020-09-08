@@ -79,7 +79,7 @@ class CineTO(CBaseHostClass, CaptchaHelper):
         post_data['page'] = cItem.get('page', 1)
         post_data['count'] = count
         
-        post_data = urllib.urlencode(post_data) + '&year%5B%5D={0}&year%5B%5D={1}'.format(sYear, eYear)
+        post_data = urllib.parse.urlencode(post_data) + '&year%5B%5D={0}&year%5B%5D={1}'.format(sYear, eYear)
         printDBG(post_data)
         return post_data
     

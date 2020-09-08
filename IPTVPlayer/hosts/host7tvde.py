@@ -352,7 +352,7 @@ class C7tvDe(CBaseHostClass):
             
             #client_name = 'kolibri-1.2.5'
             client_id = salt[:2] + sha1(''.join([salt, video_id, access_token, server_id,client_location, str(source_id), salt, client_name]).encode('utf-8')).hexdigest()
-            url_api_url = 'http://vas.sim-technik.de/vas/live/v2/videos/%s/sources/url?%s' % (video_id, urllib.urlencode({
+            url_api_url = 'http://vas.sim-technik.de/vas/live/v2/videos/%s/sources/url?%s' % (video_id, urllib.parse.urlencode({
                 'access_token': access_token,
                 'client_id': client_id,
                 'client_location': client_location,

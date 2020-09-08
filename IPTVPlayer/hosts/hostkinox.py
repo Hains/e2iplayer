@@ -346,7 +346,7 @@ class Kinox(CBaseHostClass):
             if 'f_genre' in cItem: query['genre'] = cItem['f_genre']
             if 'f_country' in cItem: query['country'] = cItem['f_country']
             if query != {}: query.update({'q':'', 'actors':'', 'imdbop':'', 'imdbrating':'', 'year':'', 'extended_search':1})
-            query = urllib.urlencode(query)
+            query = urllib.parse.urlencode(query)
             if query != '': url += '?' + query
             
             sts, data = self.getPage(url)
