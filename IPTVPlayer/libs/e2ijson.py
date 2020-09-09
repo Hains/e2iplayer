@@ -33,7 +33,7 @@ def loads(input, noneReplacement=None, baseTypesAsString=False, utf8=True):
             out = byteify(out, noneReplacement, baseTypesAsString)
     else:
         out = json.loads(input.read().decode())
-        # FIXME or remove me forver!
+        # FIXME or remove me forever!
         # if utf8 or noneReplacement != None or baseTypesAsString != False:
         #    out = byteify(out, noneReplacement, baseTypesAsString)
 
