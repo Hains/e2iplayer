@@ -1506,6 +1506,7 @@ class IPTVExtMoviePlayer(Screen):
         
         if None == data or self.isClosing:
             return
+        data = data.decode()
         if None == self.playerBinaryInfo['version']: self.playerBinaryInfo['data'] += data
         data = self.responseData + data
         if '\n' != data[-1]: truncated = True
