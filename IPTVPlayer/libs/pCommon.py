@@ -904,7 +904,7 @@ class common:
             response = None
             status = False
         
-        if addParams['return_data'] and status and not isinstance(response, str):
+        if addParams['return_data'] and status and not isinstance(response, object):
             status = False
             
         return (status, response)
