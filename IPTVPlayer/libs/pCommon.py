@@ -1301,7 +1301,8 @@ class common:
         else:
             req = urllib.request.Request(pageUrl, None, headers)
 
-        if not params.get('return_data', False):
+        # FIXME temporary 'or 1' workaround to fix category list at least
+        if not params.get('return_data', False) or 1:
             out_data = urlOpen(req, customOpeners, timeout)
         else:
             gzip_encoding = False
