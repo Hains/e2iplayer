@@ -1118,7 +1118,7 @@ class common:
                 blockSize = addParams.get('block_size', 8192)
                 fileHandler = None
                 while True:
-                    buffer = downHandler.read(blockSize)
+                    buffer = downHandler.read(blockSize).decode()
                     
                     if len(checkFromFirstBytes):
                         OK = False
