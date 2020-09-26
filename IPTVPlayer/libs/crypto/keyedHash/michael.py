@@ -63,7 +63,7 @@ def b(l,r):
     l  = (l+r) & 0xffffffff                                  # l = (l+r) mod 2**32
     r ^= (((l<<3) & 0xffffffff) | ((l>>29)& 0x7))            # r  = r ^ (l <<< 3)
     l  = (l+r) & 0xffffffff                                  # l = (l+r) mod 2**32
-    r ^= (((l<<30L) & 0xffffffff)|((l>>2) & 0x3fffffff))     # r  = r ^ (l >>> 2)
+    r ^= (((l<<30) & 0xffffffff)|((l>>2) & 0x3fffffff))     # r  = r ^ (l >>> 2)
     l  = (l+r) & 0xffffffff                                  # l = (l+r) mod 2**32
     return (l,r)
 

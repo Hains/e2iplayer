@@ -130,7 +130,7 @@ class CCM(BlockCipherWithIntegrity):
         for i in range(numCbcBlocks) :
             cbcBlock    = cbcInput[i*self.blockSize:(i+1)*self.blockSize]
             cbcMicValue = self.baseCipher.encrypt( xor(cbcMicValue, cbcBlock) )
-        counter   = 0L
+        counter   = 0
         # the counter mode preload with counter starting at zero
         ctrModePl = chr(self.L-1)+ nonce + pack('>Q', counter)[-self.L:]
         ccmMIC = xor(self.baseCipher.encrypt(ctrModePl),cbcMicValue)[:self.M] # first M bytes of xor
