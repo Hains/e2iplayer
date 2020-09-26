@@ -23,7 +23,7 @@ def main():
     try:
         # use get opt to parse and validate command line
         optlist, args = getopt.getopt( sys.argv[1:], 'edk:i:o:' )
-    except getopt.GetoptError, err :
+    except getopt.GetoptError as err :
         sys.exit( "Error: %s\n%s" % (err,usage) )
     print(optlist,'\n------\n',args)
     # make a dictionary and check for one occurance of each option

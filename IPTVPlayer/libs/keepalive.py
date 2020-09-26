@@ -320,7 +320,7 @@ class KeepAliveHandler:
                     h.putrequest('GET', req.selector)
                 else:
                     h.putrequest('GET', req.get_selector())
-        except (socket.error, httplib.HTTPException), err:
+        except (socket.error, httplib.HTTPException) as err:
             raise urllib.error.URLError(err)
 
         for args in self.parent.addheaders:
