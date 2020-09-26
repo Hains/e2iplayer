@@ -57,7 +57,7 @@ class Michael:
 
 def b(l,r):
     """ The 'b' block function for the IEEE 802.11i Michael Integrity Check """
-    r ^= (((l<<17) & 0xffffffff)|((l>>15) & 0x1ffffL))       # r = r ^ (l <<< 17)
+    r ^= (((l<<17) & 0xffffffff)|((l>>15) & 0x1ffff))       # r = r ^ (l <<< 17)
     l  = (l+r) & 0xffffffff                                  # l = (l+r) mod 2**32
     r ^= ((l & 0xff00ff00)>>8)|((l & 0x00ff00ff)<<8)         # r = r ^ XSWAP(l)
     l  = (l+r) & 0xffffffff                                  # l = (l+r) mod 2**32
