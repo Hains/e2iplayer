@@ -211,7 +211,7 @@ class CCM(BlockCipherWithIntegrity):
             raise EncryptError('CCM illegal length value')
         elif 0 <= length < 0xFF00:
             byteString = pack('!H', length)         # pack into two bytes
-        elif 0xFF00 <= length < 0x100000000L:
+        elif 0xFF00 <= length < 0x100000000:
             byteString = pack('!HI',0xFFFE, length) # pack into 0xFFFE + four bytes
         elif 0x100000000 <= length < 0x10000000000000000L:
             byteString = pack('!HQ',0xFFFF, length) # pack into 0xFFFF + eigth bytes
