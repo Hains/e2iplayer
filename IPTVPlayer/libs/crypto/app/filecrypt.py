@@ -63,7 +63,7 @@ def main():
     elif '-d' in optdict:
         try:
             output = alg.decrypt(input)
-        except DecryptNotBlockAlignedError, errMessage :
+        except DecryptNotBlockAlignedError as errMessage :
             sys.exit("""Error: %s\n    Note this can be caused by inappropriate modification \n    of binary files (Win issue with CR/LFs).  Try -a mode. """ % errMessage )
         # should check for integrity failure
     else:
