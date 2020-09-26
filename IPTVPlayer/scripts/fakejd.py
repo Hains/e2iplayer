@@ -392,7 +392,7 @@ class MyjdRequestHandler(BaseHTTPRequestHandler):
 
         elif data['url'] == '/captcha/getCaptchaJob':
             if jd.captcha_result == None:
-                return_data = {'hoster': 'iptvplayer.gitlab.io', 'created': jd.captcha_data['id'], 'explain': None, 'id': jd.captcha_data['id'], 'captchaCategory': 'recaptchav2', 'link': 1535005786381L, 'timeout': 600000, 'type': 'RecaptchaV2Challenge', 'remaining': 593028}
+                return_data = {'hoster': 'iptvplayer.gitlab.io', 'created': jd.captcha_data['id'], 'explain': None, 'id': jd.captcha_data['id'], 'captchaCategory': 'recaptchav2', 'link': 1535005786381, 'timeout': 600000, 'type': 'RecaptchaV2Challenge', 'remaining': 593028}
             else:
                 return_data = None
         elif data['url'] == '/captcha/get':
