@@ -235,7 +235,7 @@ class KeepAliveHandler:
                 self._cm.add(host, h, 0)
                 self._start_transaction(h, req)
                 r = h.getresponse()
-        except (socket.error, httplib.HTTPException), err:
+        except (socket.error, httplib.HTTPException) as err:
             raise urllib.error.URLError(err)
             
         if DEBUG: DEBUG.info("STATUS: %s, %s", r.status, r.reason)
